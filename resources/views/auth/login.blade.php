@@ -22,7 +22,7 @@
                 <div class="input-card-wrap input-card-wrap-design-2 text-center ">
                     <div class="input-card-title">
                         <h2>Page de connexion</h2>
-                        <p>Nouvel membre? <a href="sign-up.html">S'inscrire ici</a></p>
+                        <p>Nouvel membre? <a href="{{ url('register') }}">S'inscrire ici</a></p>
                     </div>
                     <div class="input-card-box mt-100">
                         <form method="POST" action="{{ route('login') }}">

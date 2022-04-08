@@ -64,22 +64,61 @@
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                             <div class="menu-btn-wrap d-block d-lg-none">
-                                <a class="common-btn btn-style-1" href="{{ route('login') }}">Connecter</a>
+                                @guest
+                                    <a class="common-btn btn-style-1" href="{{ route('login') }}">Connecter</a>
+                                @else 
+
+                                        <a class="common-btn btn-style-1" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Déconnecter') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+
+                                    @if(Auth::user()->role == "etudiant")
+                                    <img src="{{ asset('front/assets/images/avatar/student.png') }}" width="50" height="50" alt="">
+                                    @else 
+                                    <img src="{{ asset('front/assets/images/avatar/teacher.png') }}" width="50" height="50" alt="">
+
+                                    @endif
+                                    {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                                @endif
                             </div>
+
                         </nav>
                     </div>
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                        @guest
                         <div class="menu-btn-wrap">
                             <a class="common-btn btn-style-6" href="{{ route('login') }}">Connecter</a>
-                            <div class="menu-toggle-btn">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </div>
+                            
                         </div>
+                        @else 
+                            <div class="menu-btn-wrap">
+                                <a class="common-btn btn-style-6" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Déconnecter') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                            @if(Auth::user()->role == "etudiant")
+                            <img src="{{ asset('front/assets/images/avatar/student.png') }}" width="50" height="50" alt="">
+                            @else 
+                            <img src="{{ asset('front/assets/images/avatar/teacher.png') }}" width="50" height="50" alt="">
+
+                            @endif
+                            {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+
+                        @endif
                     </div>
+                  
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Ajouter enseignant')
+@section('titre', 'Ajouter etudiant')
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')
@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Ajouter un enseignant
+                Ajouter un étudiant
             </h1>
         </section>
         <section class="content">
@@ -21,7 +21,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin/enseignants') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/etudiants') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body" id="inputs">
                                 <div class="form-group">
@@ -106,89 +106,6 @@
 
     @endsection
     @section('script')
-    <script>
-        $("#tp").on('click', function () {
-            $("#enseignant_tp").css('display', 'block');
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'get',
-                url: '/teachers/',
-                data: '_token = <?php echo csrf_token() ?>',
-                success: function (data) {
-                    console.log(data);
-
-                    $.each(data, function (index, value) {
-                        $('#enseignant_id_tp').append('<option value="' + value.enseignant
-                            .id + '">' + value.nom + '</option>');
-                    });
-
-                }
-            });
-        });
-        $("#td").on('click', function () {
-            $("#enseignant_td").css('display', 'block');
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'get',
-                url: '/teachers/',
-                data: '_token = <?php echo csrf_token() ?>',
-                success: function (data) {
-                    console.log(data);
-
-                    $.each(data, function (index, value) {
-                        $('#enseignant_id_td').append('<option value="' + value.enseignant
-                            .id + '">' + value.nom + '</option>');
-                    });
-
-                }
-            });
-        });
-        $("#cours").on('click', function () {
-            $("#enseignant_cours").css('display', 'block');
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'get',
-                url: '/teachers/',
-                data: '_token = <?php echo csrf_token() ?>',
-                success: function (data) {
-                    console.log(data);
-
-                    $.each(data, function (index, value) {
-                        $('#enseignant_id_cours').append('<option value="' + value
-                            .enseignant.id + '">' + value.nom + '</option>');
-                    });
-
-                }
-            });
-        });
-        $("#section_id").on('change', function () {
-            var section_id = $(this).val();
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'get',
-                url: '/module_list/' + section_id,
-                data: '_token = <?php echo csrf_token() ?>',
-                success: function (data) {
-                    console.log("test");
-                    $("#module_id").empty();
-                    $("#module_id").append(
-                        '<option value="" disabled selected> Choisir module</option>')
-                    $.each(data, function (index, value) {
-                        $("#module_id").append('<option value="' + value.id + '">' + value
-                            .titre + '</option>')
-                    });
-                }
-            });
-        });
-
-    </script>
+   
 
     @endsection

@@ -25,8 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('adresse')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ["etudiant", "admin", "jury"]);
-            $table->boolean('approuver')->nullable();
+            $table->enum('role', ["etudiant", "admin", "jury"])->default('etudiant');
+            $table->boolean('approuver')->nullable()->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

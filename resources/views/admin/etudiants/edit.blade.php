@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 
-@section('titre', 'Modifier enseignant')
+@section('titre', 'Modifier etudiant')
 @section('content')
 <div class="wrapper">
         @include('admin.includes.header')
@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1>
-                    Modifier un enseignant 
+                    Modifier un etudiant 
                 </h1>
             </section>
             <section class="content">
@@ -22,7 +22,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin/enseignants/'.$enseignant->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/etudiants/'.$etudiant->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="card-body" id="inputs">
@@ -31,21 +31,21 @@
                                 
                                 <div class="form-group">
                                     <label for="nom">Nom</label>
-                                    <input type="text" class="form-control" name="nom" value="{{ $enseignant->nom }}" id="nom" placeholder="Saisir nom">
+                                    <input type="text" class="form-control" name="nom" value="{{ $etudiant->nom }}" id="nom" placeholder="Saisir nom">
                                     @error('nom')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="prenom">Prénom</label>
-                                    <input type="text" class="form-control" name="prenom" value="{{ $enseignant->prenom }}" id="prenom" placeholder="Saisir prenom">
+                                    <input type="text" class="form-control" name="prenom" value="{{ $etudiant->prenom }}" id="prenom" placeholder="Saisir prenom">
                                     @error('prenom')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" name="email" value="{{ $enseignant->email }}" id="email" placeholder="Saisir email">
+                                    <input type="text" class="form-control" name="email" value="{{ $etudiant->email }}" id="email" placeholder="Saisir email">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
@@ -53,14 +53,14 @@
                                
                                 <div class="form-group">
                                     <label for="numtel">Numéro de téléphone </label>
-                                    <input type="number" class="form-control" name="numtel" value="{{ $enseignant->numtel }}" id="numtel" placeholder="Saisir numtel">
+                                    <input type="number" class="form-control" name="numtel" value="{{ $etudiant->numtel }}" id="numtel" placeholder="Saisir numtel">
                                     @error('numtel')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="date_naissance">date naissance </label>
-                                    <input type="date" class="form-control" name="date_naissance" value="{{ $enseignant->date_naissance }}" id="date_naissance" placeholder="Saisir date_naissance">
+                                    <input type="date" class="form-control" name="date_naissance" value="{{ $etudiant->date_naissance }}" id="date_naissance" placeholder="Saisir date_naissance">
                                     @error('date_naissance')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
