@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Sujet;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SujetController;
@@ -23,6 +24,10 @@ Route::middleware(['auth'])->group(function () {
             'etudiants' => EtudiantController::class
         ]);
     });
+});
+Route::get('forums', function(){
+    $forums = Sujet::all();
+    return view('forums.index', compact('forums'));
 });
 Route::get('/', function () {
     return view('welcome');

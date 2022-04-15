@@ -20,48 +20,17 @@
                                 <a href="index-2.html"><img src="assets/images/logo.png" alt=""></a>
                             </div>
                             <ul>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Home</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="index-2.html">Home One</a></li>
-                                        <li><a href="home-two.html">Home Two</a></li>
-                                    </ul>
+                                <li class="">
+                                    <a href="/">Acceuil</a>
+                                    
                                 </li>
-                                <li><a href="documents.html">Docs</a></li>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Pages</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="documents.html">Documents</a></li>
-                                        <li><a href="document-details.html">Document Details</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="sign-up.html">Sign Up</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="ask-a-qsn.html">Ask A Qsn?</a></li>
-                                    </ul>
+                                <li><a href="{{ url('forums') }}">Forum</a></li>
+                                <li class="">
+                                    <a href="{{ url('documents') }}">Documents</a>
+                                    
                                 </li>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Forum</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="topic.html">Topic</a></li>
-                                        <li></li>
-                                        <li><a href="forum-q.html">Forum Q.</a></li>
-                                        <li><a href="topic-details.html">Topic Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Blog</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                               
+                                <li><a href="contact.html">Contactez-nous</a></li>
                             </ul>
                             <div class="menu-btn-wrap d-block d-lg-none">
                                 @guest

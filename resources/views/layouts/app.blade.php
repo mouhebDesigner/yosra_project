@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('front/assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/main.css') }}">
 </head>
 
 <body>

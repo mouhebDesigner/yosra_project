@@ -50,5 +50,6 @@
 </div>
 @endsection
 @section('content')
-
+    @include('includes.slider')
+    @include('includes.categories')
 @endsection
