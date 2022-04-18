@@ -1,101 +1,77 @@
-<header>
+<header class="tz-header tz-header-2">
+        
+        <div class="tz-customer-container">
+            <div class="container-fluid">
+                <div class="tz-header-content">
+                    <h3 class="tz-logo pull-left">
+                        <a href="#"><img alt="Images Logo" src="{{ asset('front/demos/logo-header-2.png') }}"></a>
+                    </h3>
+                    <button type="button" class="tz-button-toggle btn-navbar pull-right" data-target=".nav-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <nav class="nav-collapse pull-right">
+                        <ul class="tz-menu">
+                            <li>
+                                @guest 
 
-    <nav>
-        <div class="header-menu-area header-menu-area-design-2">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-2 col-lg-2 col-sm-6 col-6">
-                        <div class="logo text-left">
-                            <a href="index-2.html"><img src="assets/images/logo-2.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-7 col-sm-6 col-6">
-                        <a href="javascript:void(0)" class="hidden-lg hamburger">
-                            <span class="h-top"></span>
-                            <span class="h-middle"></span>
-                            <span class="h-bottom"></span>
-                        </a>
-                        <nav class="main-nav">
-                            <div class="logo mobile-ham-logo d-lg-none d-block text-left">
-                                <a href="index-2.html"><img src="assets/images/logo.png" alt=""></a>
-                            </div>
-                            <ul>
-                                <li class="">
-                                    <a href="/">Acceuil</a>
-                                    
-                                </li>
-                                <li><a href="{{ url('forums') }}">Forum</a></li>
-                                <li class="">
-                                    <a href="{{ url('documents') }}">Documents</a>
-                                    
-                                </li>
-                               
-                                <li><a href="contact.html">Contactez-nous</a></li>
-                            </ul>
-                            <div class="menu-btn-wrap d-block d-lg-none">
-                                @guest
-                                    <a class="common-btn btn-style-1" href="{{ route('login') }}">Connecter</a>
-                                @else 
+                                <a href="{{ url('/') }}">Accueil</a>
+                                @else
+                                <a href="{{ url('home') }}">Accueil</a>
 
-                                        <a class="common-btn btn-style-1" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Déconnecter') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-
-                                    @if(Auth::user()->role == "etudiant")
-                                    <img src="{{ asset('front/assets/images/avatar/student.png') }}" width="50" height="50" alt="">
-                                    @else 
-                                    <img src="{{ asset('front/assets/images/avatar/teacher.png') }}" width="50" height="50" alt="">
-
-                                    @endif
-                                    {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
                                 @endif
-                            </div>
-
-                        </nav>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                        @guest
-                        <div class="menu-btn-wrap">
-                            <a class="common-btn btn-style-6" href="{{ route('login') }}">Connecter</a>
+                            </li>
+                            <li>
+                                <a href="#">Evenements</a>
+                                
+                            </li>
+                            <li>
+                                <a href="#">Forum</a>
+                                
+                            </li>
+                            <li class="tz-point-static">
+                                <a href="#">Documents</a>
+                                
+                            </li>
+                           
                             
-                        </div>
-                        @else 
-                            <div class="menu-btn-wrap">
-                                <a class="common-btn btn-style-6" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Déconnecter') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                            @if(Auth::user()->role == "etudiant")
-                            <img src="{{ asset('front/assets/images/avatar/student.png') }}" width="50" height="50" alt="">
-                            @else 
-                            <img src="{{ asset('front/assets/images/avatar/teacher.png') }}" width="50" height="50" alt="">
+                        </ul>
+                        <ul class="tz-menu">
+                            @guest 
+                                <li class="tz-point-static">
+                                    <a href="{{ route('login') }}" class="login-btn">Connecter</a>
+                                    
+                                </li>
+                                <li class="tz-point-static">
+                                    <a href="{{ route('login') }}" class="login-btn">S'inscrire</a>
+                                </li>
 
                             @endif
-                            {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                            
+                            @if(Auth::check())
+                                <li>
+                                    <a href="{{ url('profile') }}" style="margin-right: 50px">
+                                            
+                                        <img src="{{ asset('front/icons/avatar.png') }}" width="50" height="50" style="border-radius: 50%" alt="">
+                                        <span style="color: white">
+                                            {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="tz-point-static">
+                                    <a  class="login-btn" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        {{ __('Déconnecter') }}
+                                    </a>
 
-                        @endif
-                    </div>
-                  
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
                 </div>
-            </div>
+            </div><!-- End Content Main Header -->
         </div>
-    </nav>
-
-
-
-    @yield('breadcamp')
-    
-
-</header>
+    </header>

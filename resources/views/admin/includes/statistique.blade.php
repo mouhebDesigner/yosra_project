@@ -7,10 +7,10 @@
         </span>
 
         <div class="info-box-content">
-          <span class="info-box-text text-white">
+          <span class="info-box-text text-dark">
               Les Sujets
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>
@@ -25,10 +25,10 @@
         </span>
 
         <div class="info-box-content">
-          <span class="info-box-text text-white">
+          <span class="info-box-text text-dark">
               Les Etudiants
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>
@@ -43,10 +43,10 @@
         </span>
 
         <div class="info-box-content">
-          <span class="info-box-text text-white">
+          <span class="info-box-text text-dark">
               Inscriptions
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>

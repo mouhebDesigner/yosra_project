@@ -1,83 +1,158 @@
 @extends('layouts.app')
 
-@section('breadcamp')
-<div class="breadcrumb-area">
+@section('content')
+<section class="tz-wrapper-default">
+    
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="breadcrumb-wrap text-center">
-                    <h1>Inscription</h1>
-                    <p><a href="index-2.html">Home</a><i class="bx bxs-right-arrow-alt"></i>Inscription</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-@section('content')
-<div class="sign-up mt-100 pb-100">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
-                <div class="input-card-wrap input-card-wrap-design-2 ">
-                    <div class="input-card-title">
-                        <h2>Page d'Inscription</h2>
-                        <p>J'ai dèja un compte? <a href="{{ url('login') }}">Se connecter ici</a></p>
-                    </div>
-                    <div class="input-card-box mt-100">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <input type="text" name="nom"  class="form-control-pass" placeholder="Saisir votre nom">
-                            @error('nom')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <input type="text" name="prenom"  class="form-control-pass" placeholder="Saisir votre prenom">
-                            @error('prenom')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <input type="number" name="numtel"  class="form-control-pass" placeholder="Saisir votre numtel">
-                            @error('numtel')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tz-link-widget">
+                    
+                    <aside class="widget widget-link">
+                        <ul>
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Page de connexion</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Page d'inscription</strong>
+                                </a>
+                            </li>
                             
-                            <input type="email" name="email"  class="form-control-pass" placeholder="Saisir votre Email">
-                            @error('email')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <input type="date" name="date_naissance"  class="form-control-pass" placeholder="Saisir votre prenom">
-                            @error('date_naissance')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                          
-                            <input id="password-field" name="password" type="password" class="form-control-pass"
-                                placeholder="Mot de passe">
-                            @error('password')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <input id="password-field" name="password_confirmation" type="password" class="form-control-pass"
-                                placeholder="Confirmer le mot de passe">
-                           
-                            <i class="bi bi-eye field-icon toggle-password"></i>
-                            <button type="submit" class="mt-50">Envoyer</button>
-                         
-                        </form>
-
-                    </div>
+                            <li>
+                                <a href="#">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Mot de passe oublié</strong>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                <div class="joom-login">
+                    <h4 class="joom-title"><img src="{{ asset('front/demos/check.png') }}" alt="Images">SE CONNECTER</h4>
+                    <form class="joom-form-login" method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Nom:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="text" name="nom"  class="" placeholder="Saisir votre nom">
+                                        <br>
+                                        @error('nom')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Prénom:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="text" name="prenom"  class="" placeholder="Saisir votre prenom">
+                                        <br>
+                                        @error('prenom')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="text" name="email" value="">
+                                        <br>
+                                        @error('email')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Numéro de téléphone:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="number" name="numtel"  class="" placeholder="Saisir votre numtel">
+                                        <br>
+                                        @error('numtel')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Date de naissance:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="date" name="date_naissance"  class="" placeholder="Saisir votre prenom">
+                                        <br>
+                                        @error('date_naissance')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Mot de passe:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="password" name="password" value="">
+                                        <br>
+                                        @error('password')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Confirmer mot de passe:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input id="password-field" name="password_confirmation" type="password" class="" placeholder="Confirmer le mot de passe">
+                                       
+                                    </div>
+                                </div>
+                               
+                                <div class="controls">
+                                    <button type="submit"><i class="fa fa-arrows-alt"></i>Envoyer</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <ul class="joom-form-meta">
+                                    <li><a href="{{ route('login') }}">Avez-vous déjà un compte?</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--end class row-->
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

@@ -1,58 +1,97 @@
 @extends('layouts.app')
 
-@section('breadcamp')
-<div class="breadcrumb-area">
+@section('content')
+<section class="tz-wrapper-default">
+    
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="breadcrumb-wrap text-center">
-                    <h1>Login</h1>
-                    <p><a href="index-2.html">Home</a><i class="bx bxs-right-arrow-alt"></i>Login</p>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tz-link-widget">
+                    
+                    <aside class="widget widget-link">
+                        <ul>
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Page de connexion</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Page d'inscription</strong>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">
+                                    <img alt="Images" src="{{ asset('front/demos/check.png')  }}">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <strong>Mot de passe oublié</strong>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                <div class="joom-login">
+                    <h4 class="joom-title"><img src="{{ asset('front/demos/check.png') }}" alt="Images">SE CONNECTER</h4>
+                    <form class="joom-form-login" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="text" name="email" value="">
+                                        @error('email')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <label>Mot de passe:</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                        <input type="password" name="password" value="">
+                                        @error('password')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="controls">
+                                    <button type="submit"><i class="fa fa-arrows-alt"></i>Connecter</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <ul class="joom-form-meta">
+                                    <li>
+                                        @if (Route::has('password.request'))
+                                        <a  href="{{ route('password.request') }}">
+                                            {{ __('Avez-vous oublié votre mot de passe?') }}
+                                        </a>
+                                        @endif
+                                    </li>
+                                    <li><a href="{{ route('register') }}">Vous n'avez pas un compte?</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--end class row-->
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
-@section('content')
-<div class="sign-up mt-100 pb-100">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
-                <div class="input-card-wrap input-card-wrap-design-2 text-center ">
-                    <div class="input-card-title">
-                        <h2>Page de connexion</h2>
-                        <p>Nouvel membre? <a href="{{ url('register') }}">S'inscrire ici</a></p>
-                    </div>
-                    <div class="input-card-box mt-100">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <input type="email" name="email" placeholder="Enter Your Email">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <input id="password-field" name="password" type="password" class="form-control-pass"
-                                name="password" placeholder="Password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <i class="bi bi-eye field-icon toggle-password"></i>
-                            <button type="submit" class="mt-50">Connecter</button>
-                            @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Avez-vous oublié votre mot de passe?') }}
-                            </a>
-                            @endif
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 @endsection

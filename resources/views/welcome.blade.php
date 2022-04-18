@@ -1,55 +1,142 @@
 @extends('layouts.app')
 
-@section('breadcamp')
-<div class="herobanner-area herobanner-design-2">
-    <div class="social-left-area">
-        <div class="social-text">
-            <p>FollowUs</p>
-        </div>
-        <ul class="social-icon">
-            <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
-            <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
-            <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
-            <li><a href="#"><i class="bx bxl-pinterest-alt"></i></a></li>
-        </ul>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="hero-content text-center">
-                    <h1>Search Anything That Your Need</h1>
-                    <p>Search here to get answers to your Questions</p>
-                    <div class="hero-form">
-                        <form action="https://demo.egenslab.com/html/docbase/index.html" class="form-content">
-                            <div class="form-input-area">
-                                <input type="text" placeholder="Search Here.....">
-                                <select style="display: none;">
-                                    <option data-display="All">All</option>
-                                    <option value="1">All1</option>
-                                    <option value="2">All2</option>
-                                </select>
-                                <div class="nice-select" tabindex="0"><span class="current">All</span>
-                                    <ul class="list">
-                                        <li data-value="All" data-display="All" class="option selected">All</li>
-                                        <li data-value="1" class="option">All1</li>
-                                        <li data-value="2" class="option">All2</li>
-                                    </ul>
+
+@section('content')
+<section class="tz-banner tz-banner-style2" style="z-index: 1;">
+    <!-- Begin class banner style-3 -->
+    <div class="tz-banner-style2" style="z-index: 1;">
+        <div class="tz-slider-banner owl-carousel owl-theme" style="display: block; opacity: 1;">
+            <div class="owl-wrapper-outer">
+                <div class="owl-wrapper"
+                    style="display: block; width: 10060px; left: 0px; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                    <div class="owl-item active" style="width: 1006px;">
+                        <div class="tz-items">
+                            <div class="tz-slider-images">
+                                <img src="{{ asset('front/demos/Banner/banner-03.jpg') }}" alt="Images">
+                            </div>
+                            <div class="tz-banner-content" style="top: 262.5px;">
+                                <div class="container">
+                                    <small>NUMBER ONE</small>
+                                    <h4>ENGLAND UNIVERSITY</h4>
+                                    <span class="tz-under-line"></span>
+                                    <h6>We Are The Best Worldwide University</h6>
+                                    <a class="tz-item-more-details" href="#">
+                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    </a>
                                 </div>
                             </div>
-                        </form>
-                        <button>Search</button>
+                            <button class="tz-button-left" style="top: 40%;">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="tz-button-right" style="top: 40%;">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 1006px;">
+                        <div class="tz-items">
+                            <div class="tz-slider-images">
+                                <img src="{{ asset('front/demos/Banner/banner-01.jpg') }}" alt="Images">
+                            </div>
+                            <div class="tz-banner-content" style="top: 262.5px;">
+                                <div class="container">
+                                    <small>NUMBER ONE</small>
+                                    <h4>ENGLAND UNIVERSITY</h4>
+                                    <span class="tz-under-line"></span>
+                                    <h6>We Are The Best Worldwide University</h6>
+                                    <a class="tz-item-more-details" href="#">
+                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="tz-button-left" style="top: 40%;">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="tz-button-right" style="top: 40%;">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 1006px;">
+                        <div class="tz-items">
+                            <div class="tz-slider-images">
+                                <img src="{{ asset('front/demos/Banner/banner-02.jpg') }}" alt="Images">
+                            </div>
+                            <div class="tz-banner-content" style="top: 262.5px;">
+                                <div class="container">
+                                    <small>NUMBER ONE</small>
+                                    <h4>ENGLAND UNIVERSITY</h4>
+                                    <span class="tz-under-line"></span>
+                                    <h6>We Are The Best Worldwide University</h6>
+                                    <a class="tz-item-more-details" href="#">
+                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="tz-button-left" style="top: 40%;">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="tz-button-right" style="top: 40%;">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 1006px;">
+                        <div class="tz-items">
+                            <div class="tz-slider-images">
+                                <img src="{{ asset('front/demos/Banner/banner-04.jpg') }}" alt="Images">
+                            </div>
+                            <div class="tz-banner-content" style="top: 262.5px;">
+                                <div class="container">
+                                    <small>NUMBER ONE</small>
+                                    <h4>ENGLAND UNIVERSITY</h4>
+                                    <span class="tz-under-line"></span>
+                                    <h6>We Are The Best Worldwide University</h6>
+                                    <a class="tz-item-more-details" href="#">
+                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="tz-button-left" style="top: 40%;">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="tz-button-right" style="top: 40%;">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 1006px;">
+                        <div class="tz-items">
+                            <div class="tz-slider-images">
+                                <img src="{{ asset('front/demos/Banner/banner-05.jpg') }}" alt="Images">
+                            </div>
+                            <div class="tz-banner-content" style="top: 262.5px;">
+                                <div class="container">
+                                    <small>NUMBER ONE</small>
+                                    <h4>ENGLAND UNIVERSITY</h4>
+                                    <span class="tz-under-line"></span>
+                                    <h6>We Are The Best Worldwide University</h6>
+                                    <a class="tz-item-more-details" href="#">
+                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="tz-button-left" style="top: 40%;">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="tz-button-right" style="top: 40%;">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
-    <img class="shape hero-img-2" src="assets/images/hero-img-2.png" alt="">
-    <img class="shape hero-dot-shape-2" src="assets/images/hero-dot-shape-2.png" alt="">
-    <img class="shape hero-top-left-home-2" src="assets/images/hero-shape-top-left-home-2.png" alt="">
-    <img class="shape hero-dot-shape-2" src="assets/images/hero-dot-shape-2.png" alt="">
-</div>
-@endsection
-@section('content')
-    @include('includes.slider')
-    @include('includes.categories')
+    <!-- End  class banner style-3 -->
+</section>
 @endsection

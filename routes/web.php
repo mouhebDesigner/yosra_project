@@ -4,6 +4,7 @@ use App\Models\Sujet;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SujetController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EtudiantController;
 
 /*
@@ -29,6 +30,7 @@ Route::get('forums', function(){
     $forums = Sujet::all();
     return view('forums.index', compact('forums'));
 });
+Route::get('profile', [ProfileController::class, 'index'])->middleware('auth');
 Route::get('/', function () {
     return view('welcome');
 });
