@@ -21,7 +21,7 @@
                                 @endif
                             </li>
                             <li>
-                                <a href="#">Evenements</a>
+                                <a href="{{ route('events.index') }}">Evenements</a>
                                 
                             </li>
                             <li>

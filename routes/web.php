@@ -1,11 +1,15 @@
 <?php
 
 use App\Models\Sujet;
+use App\Models\Categorie;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SujetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\CategorieController;
+use App\Http\Controllers\EventController as EventControllerFront;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +26,20 @@ Route::middleware(['auth'])->group(function () {
         Route::resources([
             'users' => UserController::class,
             'sujets' => SujetController::class,
-            'etudiants' => EtudiantController::class
+            'etudiants' => EtudiantController::class,
+            'events' => EventController::class,
+            'categories' => CategorieController::class
         ]);
     });
 });
+Route::get('events', [EventControllerFront::class, 'index'])->name('events.index');
 Route::get('forums', function(){
     $forums = Sujet::all();
     return view('forums.index', compact('forums'));
+});
+Route::get('categorie/{id}/events', function($id){
+    $events = Categorie::find($id)->events()->get();
+    return view('events.index', compact('events'));
 });
 Route::get('profile', [ProfileController::class, 'index'])->middleware('auth');
 Route::get('/', function () {

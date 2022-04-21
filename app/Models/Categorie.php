@@ -9,9 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Categorie extends Model
 {
     use HasFactory, SoftDeletes;
-
+    protected $fillable = ["label"];
     public function sujets(){
         return $this->hasMany(Sujet::class);
+    }
+    
+    public function events(){
+        return $this->hasMany(Event::class);
     }
 
 }

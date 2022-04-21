@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('users')->insert([
+        DB::table('users')->insert([
             [
                 "nom" => "yosra",
                 "prenom" => "yosra",
@@ -27,5 +27,49 @@ class DatabaseSeeder extends Seeder
                 "password" => Hash::make("adminadmin"),
             ]
         ]);
+        DB::table('categories')->insert([
+            [
+                "label" => "Dévélopement",
+            ],
+            [
+                "label" => "Science de la vie",
+            ],
+            [
+                "label" => "Mobile",
+            ],
+            [
+                "label" => "Physique",
+            ]
+        ]); 
+        DB::table('events')->insert([
+            [
+                "image" => "images/mBxahgq4d8I32teLMptYb4fZI9zNu9kM2JpN1pxR.jpg",
+                "titre" => "lorem ipsum",
+                "description" => "lorem ipsum",
+                "date" => "2022-04-20",
+                "categorie_id" => 1,
+            ],
+            [
+                "image" => "images/knF3D6RiDZoct5kYZVMBEfE6XgyuEAf3yt2CIlFX.jpg",
+                "titre" => "lorem ipsum",
+                "description" => "lorem ipsum",
+                "date" => "2022-04-20",
+                "categorie_id" => 2,
+            ],
+            [
+                "image" => "images/knF3D6RiDZoct5kYZVMBEfE6XgyuEAf3yt2CIlFX.jpg",
+                "titre" => "lorem ipsum",
+                "description" => "lorem ipsum",
+                "date" => "2022-04-20",
+                "categorie_id" => 3,
+            ],
+            [
+                "image" => "images/knF3D6RiDZoct5kYZVMBEfE6XgyuEAf3yt2CIlFX.jpg",
+                "titre" => "lorem ipsum",
+                "description" => "lorem ipsum",
+                "date" => "2022-04-20",
+                "categorie_id" => 4,
+            ],
+        ]); 
     }
 }

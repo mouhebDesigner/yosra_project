@@ -15,7 +15,16 @@
         <a href="{{ url('admin/users') }}" class="nav-link ">
             <i class="nav-icon fas fa-user"></i>
             <p>
-            Liste d'inscription
+            Inscription
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
+     <li class="nav-item @if(Request::is('admin/etudiants*')) active @endif">
+        <a href="{{ url('admin/etudiants') }}" class="nav-link ">
+            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+            <p>
+            Etudiants
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
@@ -24,19 +33,29 @@
         <a href="{{ url('admin/sujets') }}" class="nav-link ">
             <i class="nav-icon fas fa-user"></i>
             <p>
-            Liste des sujets
+            Sujets
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
     </li>
-    <li class="nav-item @if(Request::is('admin/etudiants*')) active @endif">
-        <a href="{{ url('admin/etudiants') }}" class="nav-link ">
-            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+    <li class="nav-item @if(Request::is('admin/events*')) active @endif">
+        <a href="{{ url('admin/events') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
             <p>
-            Gérer les etudiants
+            Evènements
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
     </li>
+    <li class="nav-item @if(Request::is('admin/documents*')) active @endif">
+        <a href="{{ url('admin/documents') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+            Documents
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
+   
    
 </ul>
