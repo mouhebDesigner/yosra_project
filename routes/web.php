@@ -36,7 +36,11 @@ Route::get('events', [EventControllerFront::class, 'index'])->name('events.index
 Route::get('forums', function(){
     $forums = Sujet::all();
     return view('forums.index', compact('forums'));
-});
+})->name('forums.index');
+Route::get('forums/create', function(){
+    $forums = Sujet::all();
+    return view('forums.create', compact('forums'));
+})->name('forums.create');
 Route::get('categorie/{id}/events', function($id){
     $events = Categorie::find($id)->events()->get();
     return view('events.index', compact('events'));

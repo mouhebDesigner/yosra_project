@@ -25,7 +25,7 @@
                                 
                             </li>
                             <li>
-                                <a href="#">Forum</a>
+                                <a href="{{ route('forums.index') }}">Forum</a>
                                 
                             </li>
                             <li class="tz-point-static">

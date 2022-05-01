@@ -39,7 +39,7 @@
                                     <select class="form-control" name="categorie_id" id="categorie_id">
                                         <option value="" disabled selected>Choisir un catégorie</option>
                                         @foreach(App\Models\Categorie::all() as $categorie)
-                                            <option value="{{ $categorie->id }}">{{ $categorie->id }}</option>
+                                            <option value="{{ $categorie->id }}">{{ $categorie->label }}</option>
                                         @endforeach
                                     </select>
                                     @error('categorie_id')
