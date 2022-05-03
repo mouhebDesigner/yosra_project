@@ -4,10 +4,12 @@ use App\Models\Sujet;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\SujetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\EventController as EventControllerFront;
 
@@ -33,14 +35,9 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 Route::get('events', [EventControllerFront::class, 'index'])->name('events.index');
-Route::get('forums', function(){
-    $forums = Sujet::all();
-    return view('forums.index', compact('forums'));
-})->name('forums.index');
-Route::get('forums/create', function(){
-    $forums = Sujet::all();
-    return view('forums.create', compact('forums'));
-})->name('forums.create');
+Route::resource('forums', ForumController::class)->except('create');
+Route::get('forum/create', [ForumController::class, 'create'])->middleware('auth')->name('forums.create');
+Route::resource('commentaires', CommentaireController::class);
 Route::get('categorie/{id}/events', function($id){
     $events = Categorie::find($id)->events()->get();
     return view('events.index', compact('events'));

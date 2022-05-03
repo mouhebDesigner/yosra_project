@@ -77,7 +77,7 @@
                                         <label>Email:</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <input type="text" name="email" value="">
+                                        <input type="text" name="email" value="" placeholder="Saisir email">
                                         <br>
                                         @error('email')
                                         <span class="invalid-feedback d-block" role="alert">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                        <label>Numéro de téléphone:</label>
+                                        <label>Téléphone:</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                                         <input type="number" name="numtel"  class="" placeholder="Saisir votre numtel">
@@ -119,7 +119,7 @@
                                         <label>Mot de passe:</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <input type="password" name="password" value="">
+                                        <input type="password" name="password" value="" placeholder="Saisir mot de passe">
                                         <br>
                                         @error('password')
                                         <span class="invalid-feedback d-block" role="alert">

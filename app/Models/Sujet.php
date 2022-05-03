@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Sujet extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'titre', 'description', "categorie_id", "user_id"
+    ];
     public function commentaires(){
         return $this->hasMany(Commentaire::class);
     }

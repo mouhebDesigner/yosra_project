@@ -10,6 +10,11 @@ class Commentaire extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        "contenue",
+        "sujet_id",
+        "user_id"
+    ];
     public function user(){
         return $this->belongsTo(User::class);
     }

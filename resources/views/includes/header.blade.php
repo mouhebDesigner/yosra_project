@@ -42,14 +42,14 @@
                                     
                                 </li>
                                 <li class="tz-point-static">
-                                    <a href="{{ route('login') }}" class="login-btn">S'inscrire</a>
+                                    <a href="{{ route('register') }}" class="login-btn">S'inscrire</a>
                                 </li>
 
                             @endif
                             
                             @if(Auth::check())
                                 <li>
-                                    <a href="{{ url('profile') }}" style="margin-right: 50px">
+                                    <a href="{{ url('profile') }}" style="padding: 0px 28px;margin-right: 50px;border: none;">
                                             
                                         <img src="{{ asset('front/icons/avatar.png') }}" width="50" height="50" style="border-radius: 50%" alt="">
                                         <span style="color: white">

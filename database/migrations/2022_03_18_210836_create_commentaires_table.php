@@ -16,7 +16,7 @@ class CreateCommentairesTable extends Migration
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
             $table->text('contenue');
-            $table->string('document');
+            $table->string('document')->nullable();
             $table->foreignId('sujet_id')->nullable()->constrained('sujets')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained('users')->onUpdate('cascade')->onDelete('cascade');            
             $table->softDeletes();

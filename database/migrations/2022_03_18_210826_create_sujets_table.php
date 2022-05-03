@@ -17,8 +17,9 @@ class CreateSujetsTable extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description');
-            $table->string('document');
+            $table->text('document')->nullable();
             $table->foreignId('categorie_id')->nullable()->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

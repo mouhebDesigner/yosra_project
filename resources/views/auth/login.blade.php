@@ -49,7 +49,7 @@
                                         <label>Email:</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <input type="text" name="email" value="">
+                                        <input type="text" name="email" value="" placeholder="Saisir Email">
                                         @error('email')
                                         <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -62,7 +62,7 @@
                                         <label>Mot de passe:</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <input type="password" name="password" value="">
+                                        <input type="password" name="password" value="" placeholder="Saisir mot de passe">
                                         @error('password')
                                         <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>

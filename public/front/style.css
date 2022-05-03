@@ -8688,7 +8688,7 @@ h4.joom-title img{
 .joom-form-login {
     padding: 45px 0;
 }
-.joom-form-login input, textarea {
+.joom-form-login input, textarea, select {
     background:#f6f6f6;
     border: medium none;
     font-family: "Varela",sans-serif;

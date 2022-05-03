@@ -43,12 +43,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <aside class="widget">
-                        <form method="get" id="searchform" class="tz-bog-search" action="#">
-                            <input type="text" name="s" id="s" placeholder="Search by word">
-                            <label class="fa fa-search">&nbsp;</label>
-                        </form>
-                    </aside>
+                    
                     <aside class="widget widget-link">
                         <ul>
                             @foreach(App\Models\Categorie::all() as $categorie)
@@ -67,31 +62,20 @@
                         <ul>
                             <li>
                                 <h3>
-                                    <img src="demos/check.png" alt="Images">
-                                    LASTEST POSTS
+                                    <img src="{{ asset('front/demos/check.png') }}" alt="Images">
+                                    Derniére évènement
                                 </h3>
-                            </li>
+                            </li> 
+                            @foreach(App\Models\Event::orderBy('created_at', 'desc')->get()->take(3) as $event)
                             <li>
-                                <span><img src="demos/Blog/post-1-blog-1.jpg" alt="Images"></span>
+                                <span><img src="{{ asset('storage/'.$event->image) }}" style="width: 60px" alt="Images"></span>
                                 <div class="tz-post-content">
-                                    <h5><a href="#"></a><a href="#">Responsive Blog</a></h5>
-                                    <span>24th Augus 2014</span>
+                                    <h5><a href="#"></a><a href="#">{{ $event->titre }}</a></h5>
+                                    <span>{{ $event->date }}</span>
                                 </div>
                             </li>
-                            <li>
-                                <span><img src="demos/Blog/post-2-blog-1.jpg" alt="Images"></span>
-                                <div class="tz-post-content">
-                                    <h5><a href="#"></a><a href="#">Responsive Blog</a></h5>
-                                    <span>24th Augus 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span><img src="demos/Blog/post-3-blog-1.jpg" alt="Images"></span>
-                                <div class="tz-post-content">
-                                    <h5><a href="#"></a><a href="#">Responsive Blog</a></h5>
-                                    <span>24th Augus 2014</span>
-                                </div>
-                            </li>
+                            @endforeach
+                            
                         </ul>
                     </aside>
                     

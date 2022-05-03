@@ -55,8 +55,6 @@ class CategorieController extends Controller
     {
         $categorie = Categorie::create($request->all());
 
-       
-        
         return redirect('admin/categories')->with('created', 'Le catégorie à été crée avec succée');
 
     }
