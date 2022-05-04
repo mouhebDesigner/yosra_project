@@ -139,4 +139,5 @@
     </div>
     <!-- End  class banner style-3 -->
 </section>
+@include('includes.events')
 @endsection
