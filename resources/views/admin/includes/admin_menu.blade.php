@@ -47,6 +47,24 @@
             </p>
         </a>
     </li>
+    <li class="nav-item @if(Request::is('admin/formations*')) active @endif">
+        <a href="{{ url('admin/formations') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+            Formations
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
+    <li class="nav-item @if(Request::is('admin/actualites*')) active @endif">
+        <a href="{{ url('admin/actualites') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+            Actualités
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
     <li class="nav-item @if(Request::is('admin/documents*')) active @endif">
         <a href="{{ url('admin/documents') }}" class="nav-link ">
             <i class="nav-icon fas fa-user"></i>

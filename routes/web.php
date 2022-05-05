@@ -10,7 +10,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\ActualiteControllerFront;
+use App\Http\Controllers\FormationControllerFront;
+use App\Http\Controllers\Admin\ActualiteController;
 use App\Http\Controllers\Admin\CategorieController;
+use App\Http\Controllers\Admin\FormationController;
 use App\Http\Controllers\EventController as EventControllerFront;
 
 /*
@@ -30,11 +34,18 @@ Route::middleware(['auth'])->group(function () {
             'sujets' => SujetController::class,
             'etudiants' => EtudiantController::class,
             'events' => EventController::class,
+            'formations' => FormationController::class,
+            'actualites' => ActualiteController::class,
             'categories' => CategorieController::class
         ]);
     });
 });
 Route::get('events', [EventControllerFront::class, 'index'])->name('events.index');
+Route::get('formations', [FormationControllerFront::class, 'index'])->name('formations.index');
+Route::get('actualites', [ActualiteControllerFront::class, 'index'])->name('actualites.index');
+Route::get('formations/{formation}', [FormationControllerFront::class, 'show'])->name('formations.show');
+Route::get('actualites/{actualite}', [ActualiteControllerFront::class, 'show'])->name('actualites.show');
+Route::get('events/{event}', [EventControllerFront::class, 'show'])->name('events.show');
 Route::resource('forums', ForumController::class)->except('create');
 Route::get('forum/create', [ForumController::class, 'create'])->middleware('auth')->name('forums.create');
 Route::resource('commentaires', CommentaireController::class);

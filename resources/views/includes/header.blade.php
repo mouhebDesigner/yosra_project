@@ -25,6 +25,14 @@
                                 
                             </li>
                             <li>
+                                <a href="{{ route('formations.index') }}">Formations</a>
+                                
+                            </li>
+                            <li>
+                                <a href="{{ route('actualites.index') }}">Actualités</a>
+                                
+                            </li>
+                            <li>
                                 <a href="{{ route('forums.index') }}">Forum</a>
                                 
                             </li>
