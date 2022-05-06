@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="tz-header-content">
                     <h3 class="tz-logo pull-left">
-                        <a href="#"><img alt="Images Logo" src="{{ asset('front/demos/logo-header-2.png') }}"></a>
+                        <a href="#"><img alt="Images Logo" src="{{ asset('front/demos/logo-header-2.svg') }}"></a>
                     </h3>
                     <button type="button" class="tz-button-toggle btn-navbar pull-right" data-target=".nav-collapse">
                         <i class="fa fa-bars"></i>
