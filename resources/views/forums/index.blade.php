@@ -34,7 +34,23 @@
                                     <a href="#"><img src="{{ asset('front/icons/avatar.png') }}" alt="Images" title="{{ $forum->user->nom }} {{ $forum->user->prenom }}"></a>
                                 </div>
                                 <div class="tz-info tz-info-groups">
-                                    <h5><a href="{{ route('forums.show', ['forum' => $forum]) }}">{{ $forum->titre }}</a></h5>
+                                    <div style="display: flex; justify-content: space-between; ">
+
+                                        <h5><a href="{{ route('forums.show', ['forum' => $forum]) }}">{{ $forum->titre }}</a></h5>
+                                        
+                                        @if(Auth::check())
+                                            @if($forum->user->id == Auth::id())
+                                                <div>
+                                                    <a href="{{ route('forums.edit', ['forum' => $forum]) }}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" data-model="forum" class="delete-confirm" data-url="{{ route('forums.destroy', ['forum' => $forum]) }}" >
+                                                        <i class="fa fa-trash" style="color: #95001d"></i>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    </div>
                                     <small>Créé dans: {{ $forum->created_at }}</small>
                                     <p>
                                         {{ $forum->description }}

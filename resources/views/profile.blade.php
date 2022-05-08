@@ -17,38 +17,10 @@
                     <aside class="widget widget-link">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ route('profile.edit') }}">
                                     <img alt="Images" src="{{ asset('front/demos/check.png') }}">
                                     <i class="fa fa-arrows-alt"></i>
-                                    <strong>Log In Form</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img alt="Images" src="{{ asset('front/demos/check.png') }}">
-                                    <i class="fa fa-arrows-alt"></i>
-                                    <strong>Register Form</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img alt="Images" src="{{ asset('front/demos/check.png') }}">
-                                    <i class="fa fa-arrows-alt"></i>
-                                    <strong>Remind User</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img alt="Images" src="{{ asset('front/demos/check.png') }}">
-                                    <i class="fa fa-arrows-alt"></i>
-                                    <strong>Reset Pass</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img alt="Images" src="{{ asset('front/demos/check.png') }}">
-                                    <i class="fa fa-arrows-alt"></i>
-                                    <strong>Edit User Profile</strong>
+                                    <strong>Editer mon profile</strong>
                                 </a>
                             </li>
                         </ul>
@@ -57,57 +29,52 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="tz-joom-profile">
-                    <h4 class="joom-title"><img src="{{ asset('front/demos/check.png') }}" alt="Images">EDIT USER PROFILE</h4>
-                    <p>Please enter the email address for your account.</p>
+                    <h4 class="joom-title"><img src="{{ asset('front/demos/check.png') }}" alt="Images">MON PROFILE</h4>
                     <div class="tz-profile-me">
-                        <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Image"><a href="#">ABOUT ME</a>
+                        <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Image"><a href="#">à PROPOS MOI</a>
                         </h5>
-                        <p>Maecenas ultrices viverra ligula, vel lobortis ante pulvinar sed. Donec erat magna, aliquam
-                            vitae semper vitae, accumsan vel nisl. Vivamus pellentesque orci sit amet odio dictum eget
-                            commodo nulla consequat. Proin iaculis tristique nisl ut eleifend. Maecenas lacus purus,
-                            malesuada eu scelerisque ac, commodo sed orci. Class aptent taciti sociosqu ad litora
-                            torquent per conubia nostra, per inceptos himenaeos. Curabitur a tortor ut leo mattis
-                            cursus. Vestibulum laoreet interdum pellentesque. Suspendisse vitae cursus urna.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla velit metus, ornare vitae
-                            malesuada in, fermentum ac turpis. Vestibulum convallis pulvinar tellus eget ultricies. Sed
-                            sollicitudin, sem vitae elementum euismod, velit arcu mattis diam, in scelerisque purus
-                            lorem eget elit. Sed vitae nunc in metus semper hendrerit. Curabitur metus felis, interdum
-                            quis sodales at, aliquam eu eros. Proin ac lacus urna, vel pulvinar ante. Integer posuere,
-                            sapien ut iaculis molestie, justo quam ultrices orci, eu laoreet nisl libero vel elit.</p>
-                        <small class="entry-meta">
-                            <i class="fa fa-pencil"></i>
-                            <a href="#"> Edit</a>
-                        </small>
+                        <p>
+                            {{ Auth::user()->description }}
+                        </p>
+                    
                     </div>
                     <div class="tz-profile-courses">
-                        <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Image"><a href="#">COURSE</a></h5>
-                        <div>
-                            <h3><i class="fa fa-check-circle"></i><a href="#">Master Of Gamification</a></h3>
-                            <span>Start date:<a href="#">May 29, 2014</a></span>
-                            <span>Class:<a href="#">D09</a></span>
+                        <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Image"><a href="#">FORUMS</a></h5>
+                        @foreach(Auth::user()->sujets()->get() as $forum)
+                        <div class="tz-groups-wraper">
+                            <div class="tz-detail-member clearfix">
+                                <div class="tz-avatar tz-avatar-groups pull-left">
+                                    <a href="#"><img src="{{ asset('front/icons/avatar.png') }}" alt="Images" title="{{ $forum->user->nom }} {{ $forum->user->prenom }}"></a>
+                                </div>
+                                <div class="tz-info tz-info-groups">
+                                    <div style="display: flex; justify-content: space-between; height: 50px ">
+
+                                        <h5><a href="{{ route('forums.show', ['forum' => $forum]) }}">{{ $forum->titre }}</a></h5>
+                                        
+                                        @if(Auth::check())
+                                            @if($forum->user->id == Auth::id())
+                                                <div>
+                                                    <a href="{{ route('forums.edit', ['forum' => $forum]) }}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" data-model="forum" class="delete-confirm" data-url="{{ route('forums.destroy', ['forum' => $forum]) }}" >
+                                                        <i class="fa fa-trash" style="color: #95001d"></i>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    </div>
+                                    <small>Créé dans: {{ $forum->created_at }}</small>
+                                    <p>
+                                        {{ $forum->description }}
+                                    </p>
+                                    <span class="tz-friend">
+                                        <a href="#"><i class="fa fa-comment"></i> 0 Commentaires</a>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <small class="entry-meta">
-                            <i class="fa fa-pencil"></i>
-                            <a href="#"> Edit</a>
-                        </small>
-                    </div>
-                    <div class="tz-profile-event">
-                        <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Image"><a href="#">EVENTS</a></h5>
-                        <ul>
-                            <li>
-                                <i class="fa fa-chevron-circle-down"></i> <a href="#">Science In The New Era</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-chevron-circle-down"></i> <a href="#">How To Sell Anything</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-chevron-circle-down"></i> <a href="#">Sussecful on your Business</a>
-                            </li>
-                        </ul>
-                        <small class="entry-meta">
-                            <i class="fa fa-pencil"></i>
-                            <a href="#"> Edit</a>
-                        </small>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -117,7 +84,7 @@
                         <img src="{{ asset('front/icons/avatar.png') }}" alt="Images">
                         <img src="{{ asset('front/icons/avatar.png') }}" alt="Images">
                     </div>
-                    <h5><img src="{{ asset('front/demos/check.png') }}" alt="Images"><a href="#">ETHICTEAM</a></h5>
+                    <h5><img src="{{ asset('front/demos/check.png') }}" alt="Images"><a href="#">{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></h5>
                     <p>Wedding Filmographer Newyork, USA</p>
                     <span class="tz-share-public">
                         <a href="#">
@@ -133,21 +100,11 @@
                             <i class="fa fa-youtube-play"></i>
                         </a>
                     </span>
-                    <small class="entry-meta">
-                        <i class="fa fa-pencil"></i>
-                        <a href="#"> Edit</a>
-                    </small>
+                    
                 </div>
                 <div class="tz-profile-image">
                     <h5 class="tz-profile-title"><img src="{{ asset('front/demos/check.png') }}" alt="Images"><a href="#">PHOTOS</a></h5>
-                    <ul>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-2-profile-user.jpg" alt="Images"></a></li>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-3-profile-user.jpg" alt="Images"></a></li>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-4-profile-user.jpg" alt="Images"></a></li>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-5-profile-user.jpg" alt="Images"></a></li>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-6-profile-user.jpg" alt="Images"></a></li>
-                        <li><a href="#"><img src="{{ asset('front/demos/JoomlaBase/images-7-profile-user.jpg" alt="Images"></a></li>
-                    </ul>
+                    
                 </div>
             </div>
         </div>

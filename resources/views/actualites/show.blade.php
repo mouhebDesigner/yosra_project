@@ -50,7 +50,7 @@
                         <ul>
                             @foreach(App\Models\Categorie::all() as $categorie)
                             <li>
-                                <a href="{{ url('categorie/'.$categorie->id.'/events') }}">
+                                <a href="{{ url('categorie/'.$categorie->id.'/actualites') }}">
                                     <img alt="Images" src="{{ asset('front/demos/check.png')}}">
                                     <i class="fa fa-arrows-alt"></i>
                                     <strong>{{ $categorie->label }}</strong>
@@ -67,7 +67,7 @@
                                     Derniére évènement
                                 </h3>
                             </li> 
-                            @foreach(App\Models\Event::orderBy('created_at', 'desc')->get()->take(3) as $event)
+                            @foreach(App\Models\Actualite::orderBy('created_at', 'desc')->get()->take(3) as $event)
                             <li>
                                 <span><img src="{{ asset('storage/'.$event->image) }}" style="width: 60px" alt="Images"></span>
                                 <div class="tz-post-content">

@@ -37,7 +37,7 @@
                                 
                             </li>
                             <li class="tz-point-static">
-                                <a href="#">Documents</a>
+                                <a href="{{ route('documents.index') }}">Documents</a>
                                 
                             </li>
                            

@@ -68,10 +68,10 @@
                                         @if(Auth::check())
                                             @if($forum->user->id == Auth::id())
                                                 <div>
-                                                    <a href="{{ route('commentaires.edit', ['commentaire' => $comment]) }}">
+                                                    <a href="{{ route('commentaires.edit', ['commentaire' => $commentaire]) }}">
                                                         <i class="fa fa-edit" style="color: blue"></i>
                                                     </a>
-                                                    <a href="javascript:void(0)" data-model="commentaire" class="delete-confirm" data-url="{{ route('commentaires.destroy', ['commentaire' => $comment]) }}" >
+                                                    <a href="javascript:void(0)" data-model="forum" class="delete-confirm" data-url="{{ route('commentaires.destroy', ['commentaire' => $commentaire]) }}" >
                                                         <i class="fa fa-trash" style="color: #95001d"></i>
                                                     </a>
                                                 </div>
@@ -89,11 +89,12 @@
                             </li>
                             @endforeach
                         </ul>
-                        <form action="{{ route('commentaires.store') }}" method="post">
+                        <form action="{{ route('commentaires.update', ['commentaire' => $commentaire ]) }}" method="post">
                             @csrf 
+                            @method('put')
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="sujet_id" value="{{ $forum->id }}">
-                            <textarea name="contenue" id=""  rows="3" class="w-100" placeholder="Commentaire..." style="width: 100%"></textarea>
+                            <textarea name="contenue" id=""  rows="3" class="w-100" placeholder="Commentaire..." style="width: 100%" value="{{ $commentaire->contenue }}">{{ $commentaire->contenue }}</textarea>
                             <div class="controls">
                                 <button type="submit" class="login-btn" style="width: 100%; margin-left: 0px"><i class="fa fa-arrows-alt"></i>Publier</button>
                             </div>

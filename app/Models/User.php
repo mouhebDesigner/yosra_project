@@ -25,6 +25,7 @@ class User extends Authenticatable
         'numtel',
         'password',
         'date_naissance',
+        'description'
     ];
 
     /**
@@ -58,5 +59,12 @@ class User extends Authenticatable
     }
     public function isStudent(){
         return Auth::user()->role == "etudiant";
+    }
+
+    public function setPassword(){
+        dd('lmkaehjdkjaedae');
+    }
+    public function setEmail(){
+        dd('lmkaehjdkjaedae');
     }
 }

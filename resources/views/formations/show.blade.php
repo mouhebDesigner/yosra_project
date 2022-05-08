@@ -14,10 +14,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
                             <div class="tz-single-ticket">
-                                <img src="{{ asset('storage/'.$formation->image) }}" alt="Images">
+                                <img src="{{ asset('storage/'.$formation->image) }}" width="270" alt="Images">
                                 <h3>
                                     <img src="{{ asset('front/demos/check.png')}}" alt="Images">
-                                    BUY TICKET
                                 </h3>
                                 
                             </div>
@@ -50,7 +49,7 @@
                         <ul>
                             @foreach(App\Models\Categorie::all() as $categorie)
                             <li>
-                                <a href="{{ url('categorie/'.$categorie->id.'/events') }}">
+                                <a href="{{ url('categorie/'.$categorie->id.'/formations') }}">
                                     <img alt="Images" src="{{ asset('front/demos/check.png')}}">
                                     <i class="fa fa-arrows-alt"></i>
                                     <strong>{{ $categorie->label }}</strong>
@@ -67,7 +66,7 @@
                                     Derniére évènement
                                 </h3>
                             </li> 
-                            @foreach(App\Models\Event::orderBy('created_at', 'desc')->get()->take(3) as $formation)
+                            @foreach(App\Models\Formation::orderBy('created_at', 'desc')->get()->take(3) as $formation)
                             <li>
                                 <span><img src="{{ asset('storage/'.$formation->image) }}" style="width: 60px" alt="Images"></span>
                                 <div class="tz-post-content">

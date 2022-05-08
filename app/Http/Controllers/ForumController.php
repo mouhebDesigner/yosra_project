@@ -66,9 +66,9 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sujet $sujet)
+    public function edit(Sujet $forum)
     {
-        return view('forums.edit', compact('sujet'));
+        return view('forums.edit', compact('forum'));
     }
 
     /**
@@ -78,10 +78,15 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sujet $sujet)
+    public function update(Request $request, Sujet $forum)
     {
-        $sujet->update($request->all());
-
+        $forum->update($request->all());
+        if($request->hasFile('document')){
+            foreach($request->document as $document){
+                $forum->document .= $document->store('uploads').",";
+            }
+        }
+        $forum->save();
         return redirect('forums')->with('updated', 'Le sujet à été modifié avec succée');
         
     }
@@ -92,9 +97,9 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sujet $sujet)
+    public function destroy(Sujet $forum)
     {
-        $sujet->delete();
+        $forum->delete();
         
         return response()->json([
             "deleted" => "Sujet à été supprimé"

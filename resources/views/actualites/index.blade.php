@@ -32,15 +32,6 @@
                         @endforeach
 
                     </div>
-                    <div class="TzPagination tz-pagination-events">
-                        <div class="wp-pagenavi">
-                            <a href="#" class="previouspostslink"><i class="fa fa-angle-double-left"></i></a>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a class="current">3</a>
-                            <a href="#" class="nextpostslink"><i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     
@@ -48,7 +39,7 @@
                         <ul>
                             @foreach(App\Models\Categorie::all() as $categorie)
                             <li>
-                                <a href="{{ url('categorie/'.$categorie->id.'/events') }}">
+                                <a href="{{ url('categorie/'.$categorie->id.'/actualites') }}">
                                     <img alt="Images" src="{{ asset('front/demos/check.png')}}">
                                     <i class="fa fa-arrows-alt"></i>
                                     <strong>{{ $categorie->label }}</strong>
@@ -63,10 +54,10 @@
                             <li>
                                 <h3>
                                     <img src="{{ asset('front/demos/check.png') }}" alt="Images">
-                                    Derniére évènement
+                                    Derniére actualité
                                 </h3>
                             </li> 
-                            @foreach(App\Models\Event::orderBy('created_at', 'desc')->get()->take(3) as $actualite)
+                            @foreach(App\Models\Actualite::orderBy('created_at', 'desc')->get()->take(3) as $actualite)
                             <li>
                                 <span><img src="{{ asset('storage/'.$actualite->image) }}" style="width: 60px" alt="Images"></span>
                                 <div class="tz-post-content">

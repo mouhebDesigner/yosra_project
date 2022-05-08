@@ -17,5 +17,11 @@ class Categorie extends Model
     public function events(){
         return $this->hasMany(Event::class);
     }
+    public function actualites(){
+        return $this->hasMany(Actualite::class);
+    }
+    public function formations(){
+        return $this->hasMany(Formation::class);
+    }
 
 }
