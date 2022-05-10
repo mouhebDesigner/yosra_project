@@ -1,7 +1,6 @@
 <footer class="tz-footer">
         <div class="tz-footer-content tz-footer-content-2 tz-background-color-4">
             <div class="container">
-                <img src="{{ asset('front/demos/logo-isg.svg') }}" width="100" alt="Icon-footer">
                 <ul class="tz-footer-part">
                     <li>
                         <div class="tz-footer-content-main">

@@ -16,12 +16,10 @@
                             </div>
                             <div class="tz-banner-content" style="top: 262.5px;">
                                 <div class="container">
-                                    <small>NUMBER ONE</small>
-                                    <h4>ENGLAND UNIVERSITY</h4>
-                                    <span class="tz-under-line"></span>
-                                    <h6>We Are The Best Worldwide University</h6>
-                                    <a class="tz-item-more-details" href="#">
-                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
+                                    <small>BIENVENUE A NOTRE FORUM</small>
+                                    <h4>UNIVERSTIE ISG</h4>
+                                    <a class="tz-item-more-details" href="{{ route('register') }}">
+                                        <span><i class="fa fa-arrows-alt"></i>REJOIGNEZ-NOUS</span>
                                     </a>
                                 </div>
                             </div>
