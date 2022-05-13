@@ -33,8 +33,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
-                                            <h3 class="m-0">Liste des catégories</h3>
-                                            <a href="{{ url('admin/categories/create') }}" class="add_button" title="ajouter un enseignant">
+                                            <h3 class="m-0">Liste des demande de document</h3>
+                                            <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
@@ -64,17 +64,17 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($categories as $categorie)
+                                                    @foreach($documents as $document)
                                                         <tr>
-                                                            <td>{{ $categorie->id }}</td>
-                                                            <td>{{ $categorie->label }}</td>
+                                                            <td>{{ $document->id }}</td>
+                                                            <td>{{ $document->titre }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="évènement" data-url="{{ route('admin.categories.destroy', ['category' => $categorie]) }}" >
+                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="document" data-url="{{ route('admin.documents.destroy', ['document' => $document]) }}" >
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
-                                                                    <a href="{{ route('admin.categories.edit', ['category'=>$categorie]) }}" data-model="Catégorie" class="btn-edit edit-confirm">
+                                                                    <a href="{{ route('admin.documents.edit', ['document'=>$document]) }}" data-model="document" class="btn-edit edit-confirm">
                                                                         <i class="fa fa-pen"></i>
                                                                     </a>
                                                                 </div>
@@ -84,7 +84,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="d-flex justify-content-center">
-                                                {{ $categories->links() }}
+                                                {{ $documents->links() }}
                                             </div>
                                         </div>
                                     </div>

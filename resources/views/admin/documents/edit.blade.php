@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Modifier etudiant')
+@section('titre', 'Modifier document')
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')
@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Modifier un catégorie
+                Modifier un document
             </h1>
         </section>
         <section class="content">
@@ -17,28 +17,54 @@
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Formulaire d'ajout</h3>
+                            <h3 class="card-title">Formulaire de modification</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin.categories.update', ['category' => $categorie]) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.documents.update', ['document' => $document]) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('put')
-                            <div class="card-body" id="inputs">
+                            @if($document->user_id)
+
+                                <div class="card-body" id="inputs">
+                                    <div class="form-group">
+                                        <label for="file">Fichier <span style="color: red">* </span></label>
+                                        <input type="file" class="form-control" name="file" id="file">
+                                        @error('file')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            @else
                                 <div class="form-group">
-                                    <label for="label">Titre <span
-                                            style="color: red">* </span> </label>
-                                    <input type="text" class="form-control" name="label" value="{{ $categorie->label }}" id="label"
-                                        placeholder="Saisir titre ">
-                                    @error('label')
+                                    <label for="titre">Titre <span style="color: red">* </span> </label>
+                                    <input type="text" class="form-control" name="titre" value="{{ old('titre') }}"
+                                        id="titre" placeholder="Saisir titre ">
+                                    @error('titre')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                
-                                
-                                
-                               
-                            </div>
+                                <div class="form-group">
+                                    <label for="email">Description
+                                        <span style="color: red">* </span>
+                                    </label>
+                                    <textarea name="description" class="form-control" placeholder="Saisir description"
+                                        id="">{{ old('description') }}</textarea>
+                                    @error('description')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="card-body" id="inputs">
+                                    <div class="form-group">
+                                        <label for="file">Fichier <span style="color: red">* </span></label>
+                                        <input type="file" class="form-control" name="file" id="file">
+                                        @error('file')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            @endif
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -56,6 +82,6 @@
 
     @endsection
     @section('script')
-   
+
 
     @endsection

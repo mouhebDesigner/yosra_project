@@ -11,27 +11,68 @@
         <div class="tz-events-wrapper">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        @foreach($events as $event)
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <!--Start tz-events-item -->
-                            <div class="tz-events-item">
-                                <div class="tz-image">
-                                    <img alt="Image" src="{{ asset('storage/'.$event->image) }}">
-                                    <a href="{{ route('events.show', ['event' => $event]) }}"><i class="fa fa-arrows-alt"></i></a>
-                                </div>
-                                <div class="tz-description">
-                                    <img alt="Images" src="{{ asset('front/demos/Home-02/check-01.png') }}">
-                                    <h3><a href="#">{{ $event->titre }}</a></h3>
-                                    <strong>{{ $event->date }}</strong>
-                                </div>
-                            </div>
-                            <!--End tz-events-item -->
-                        </div>
-                        @endforeach
+                    <div class="tz-all-groups">
+                        <h4 class="tz-members-title w-100" style="display: flex;justify-content: space-between;">
+                            <a href="#">DEMANDE DE DOCUMENTS</a>
+                            <a href="{{ route('documents.create') }}" class="login-btn" style="margin-right: 10px; color: white">
+                                Demander
+                            </a>
+                        </h4>
                     </div>
                 </div>
                
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    @foreach($documents as $document)
+                    <article class="tz-blog-item tz-blog-item-style-1">
+                        <div class="tz-blog-description">
+                            <h3 style="display: flex; justify-content: space-between;">
+                                <span>
+                                    <img src="{{ asset('front/demos/check.png') }}" alt="Images">
+                                    <a href="#">{{ $document->titre }}</a>
+                                </span>
+                                @if(Auth::check())
+                                    @if($document->user->id == Auth::id())
+                                        <div>
+                                            <a href="{{ route('documents.edit', ['document' => $document]) }}">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" data-model="document" class="delete-confirm" data-url="{{ route('documents.destroy', ['document' => $document]) }}" >
+                                                <i class="fa fa-trash" style="color: #95001d"></i>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endif
+                            </h3>
+                            @if($document->user_id)
+                            <span class="tz-entry-meta">
+                                Etat : <a class="tz-author" href="javascript:void(0)">
+                                    @if($document->file)
+                                        Traité
+                                    @else 
+                                        Non Traité
+                                    @endif
+                                </a>
+                            </span>
+                            @endif
+                                
+                            <p>
+                                {{ $document->description }}
+                            </p>
+                            @if($document->file)
+                            <ul class="tz-blog-more">
+                                <li>
+                                    <span>
+                                        <a class="tz-button-more" href="{{ url('downloads/'.$document->id) }}"><i class="fa fa-arrows-alt"></i>TELECHARGER DOCUMENT</a>
+                                    </span>
+                                </li>
+                            </ul>
+                            @endif
+                        </div>
+                    </article>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

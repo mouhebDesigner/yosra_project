@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Sujet;
+use App\Models\Document;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -37,10 +38,11 @@ Route::middleware(['auth'])->group(function () {
             'events' => EventController::class,
             'formations' => FormationController::class,
             'actualites' => ActualiteController::class,
-            'categories' => CategorieController::class
+            'categories' => CategorieController::class,
+            'documents' => DocumentController::class
         ]);
-        Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
-        Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
+        // Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
+        // Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
 
     });
 });
@@ -51,7 +53,10 @@ Route::get('formations/{formation}', [FormationControllerFront::class, 'show'])-
 Route::get('actualites/{actualite}', [ActualiteControllerFront::class, 'show'])->name('actualites.show');
 Route::get('events/{event}', [EventControllerFront::class, 'show'])->name('events.show');
 Route::resource('forums', ForumController::class)->except('create');
-Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
+Route::resource('documents', DocumentController::class);
+// Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
+// Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
+// Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
 Route::get('forum/create', [ForumController::class, 'create'])->middleware('auth')->name('forums.create');
 Route::resource('commentaires', CommentaireController::class);
 Route::get('categorie/{id}/events', function($id){
@@ -72,6 +77,12 @@ Route::put('profile', [ProfileController::class, 'update'])->middleware('auth')-
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('downloads/{id}', function($id){
+    $document = Document::find($id);
+    $filepath = public_path()."/".$document->file;
+    return Response::download($filepath);
+})->name('download.file');
 
 Auth::routes();
 

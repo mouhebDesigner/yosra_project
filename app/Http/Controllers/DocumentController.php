@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Document;
 use Illuminate\Http\Request;
-use Auth;
+use App\Http\Requests\DocumentRequest;
+
 class DocumentController extends Controller
 {
     public function index(){
@@ -43,9 +45,20 @@ class DocumentController extends Controller
      */
     public function store(DocumentRequest $request)
     {
+        
         $document = Document::create($request->all());
 
-        return redirect('admin/documents')->with('created', 'Le catégorie à été crée avec succée');
+        
+        if(Auth::user()->isStudent()){
+
+            return redirect('documents')->with('created', 'Le document à été crée avec succée');
+        } else {
+            if($request->hasFile('file')){
+                $document->file = $request->file->store("images");
+                $document->save();
+            }
+            return redirect('admin/documents')->with('created', 'Le document à été crée avec succée');
+        }
 
     }
 
@@ -68,7 +81,10 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-
+        if(Auth::user()->isStudent()){
+        
+            return view('documents.edit', compact('document'));
+        }
         return view('admin.documents.edit', compact('document'));
     }
 
@@ -82,7 +98,17 @@ class DocumentController extends Controller
     public function update(DocumentRequest $request, Document $document)
     {
         $document->update($request->all());
-        return redirect('admin/documents')->with('updated', 'Le catégorie à été modifié avec succée');
+
+        if(Auth::user()->isStudent()){
+
+            return redirect('documents')->with('created', 'Le document à été crée avec succée');
+        } else {
+            if($request->hasFile('file')){
+                $document->file = $request->file->store("images");
+                $document->save();
+            }
+            return redirect('admin/documents')->with('created', 'Le document à été crée avec succée');
+        }
         
         
     }
@@ -98,7 +124,7 @@ class DocumentController extends Controller
         $document->delete();
         
         return response()->json([
-            "deleted" => "Catégorie à été supprimé"
+            "deleted" => "Document à été supprimé"
         ]);
     }
 }

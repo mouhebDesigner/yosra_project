@@ -21,23 +21,34 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin/categories') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/documents') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body" id="inputs">
                                 <div class="form-group">
-                                    <label for="label">Titre <span
-                                            style="color: red">* </span> </label>
-                                    <input type="text" class="form-control" name="label" value="{{ old('label') }}" id="label"
-                                        placeholder="Saisir titre ">
-                                    @error('label')
+                                    <label for="titre">Titre <span style="color: red">* </span> </label>
+                                    <input type="text" class="form-control" name="titre" value="{{ old('titre') }}"
+                                        id="titre" placeholder="Saisir titre ">
+                                    @error('titre')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                
-                                
-                                
-                                
-                               
+                                <div class="form-group">
+                                    <label for="email">Description
+                                        <span style="color: red">* </span>
+                                    </label>
+                                    <textarea name="description" class="form-control" placeholder="Saisir description"
+                                        id="">{{ old('description') }}</textarea>
+                                    @error('description')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">Fichier <span style="color: red">* </span></label>
+                                    <input type="file" class="form-control" name="file" id="file">
+                                    @error('file')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
@@ -56,6 +67,6 @@
 
     @endsection
     @section('script')
-   
+
 
     @endsection

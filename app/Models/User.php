@@ -61,10 +61,7 @@ class User extends Authenticatable
         return Auth::user()->role == "etudiant";
     }
 
-    public function setPassword(){
-        dd('lmkaehjdkjaedae');
-    }
-    public function setEmail(){
-        dd('lmkaehjdkjaedae');
-    }
+    public function documents(){
+        return $this->hasMany(Document::class);
+    } 
 }

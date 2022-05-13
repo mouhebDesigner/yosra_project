@@ -16,7 +16,7 @@
                             </div>
                             <div class="tz-banner-content" style="top: 262.5px;">
                                 <div class="container">
-                                    <small>BIENVENUE A NOTRE FORUM ISG GABES</small>
+                                    <small>FORUM ISG GABES</small>
                                     <h4>UNIVERSTIE ISG</h4>
                                     <a class="tz-item-more-details" href="{{ route('register') }}">
                                         <span><i class="fa fa-arrows-alt"></i>REJOIGNEZ-NOUS</span>
