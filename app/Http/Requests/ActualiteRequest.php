@@ -26,9 +26,8 @@ class ActualiteRequest extends FormRequest
         return [
             "titre" => "required | string",
             "description" => "required | string",
-            "image" => "required | mimes:png,jpg,jpeg",
-            "date" => "required",
-            "categorie" => "required | string",
+            "image" => "required",
+            "categorie_id" => "required",
         ];
     }
 }

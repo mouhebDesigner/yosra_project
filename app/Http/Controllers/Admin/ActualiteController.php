@@ -52,6 +52,7 @@ class ActualiteController extends Controller
      */
     public function store(ActualiteRequest $request)
     {
+        
         $actualite = Actualite::create($request->all());
 
         
@@ -94,7 +95,7 @@ class ActualiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ActualiteUpdateRequest $request, Actualite $actualite)
+    public function update(Request $request, Actualite $actualite)
     {
         $actualite->update($request->all());
         if($request->hasFile('image')){

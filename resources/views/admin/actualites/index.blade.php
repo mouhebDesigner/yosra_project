@@ -33,8 +33,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
-                                            <h3 class="m-0">Liste des évènements</h3>
-                                            <a href="{{ url('admin/events/create') }}" class="add_button" title="ajouter un enseignant">
+                                            <h3 class="m-0">Liste des actualités</h3>
+                                            <a href="{{ url('admin/actualites/create') }}" class="add_button" title="ajouter un enseignant">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
@@ -69,19 +69,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($events as $event)
+                                                    @foreach($actualites as $actualite)
                                                         <tr>
-                                                            <td>{{ $event->id }}</td>
-                                                            <td>{{ $event->titre }}</td>
-                                                            <td>{{ $event->categorie->label }}</td>
-                                                            <td>{{ $event->date }}</td>
+                                                            <td>{{ $actualite->id }}</td>
+                                                            <td>{{ $actualite->titre }}</td>
+                                                            <td>{{ $actualite->categorie->label }}</td>
+                                                            <td>{{ $actualite->date }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="évènement" data-url="{{ route('admin.events.destroy', ['event' => $event]) }}" >
+                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="actualité" data-url="{{ route('admin.actualites.destroy', ['actualite' => $actualite]) }}" >
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
-                                                                    <a href="{{ route('admin.events.edit', ['event'=>$event]) }}" data-model="évènement" class="btn-edit edit-confirm">
+                                                                    <a href="{{ route('admin.actualites.edit', ['actualite'=>$actualite]) }}" data-model="actualité" class="btn-edit edit-confirm">
                                                                         <i class="fa fa-pen"></i>
                                                                     </a>
                                                                 </div>
@@ -91,7 +91,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="d-flex justify-content-center">
-                                                {{ $events->links() }}
+                                                {{ $actualites->links() }}
                                             </div>
                                         </div>
                                     </div>

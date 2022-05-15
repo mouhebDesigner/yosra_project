@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Ajouter etudiant')
+@section('titre', 'Ajouter actualité')
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')
@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Ajouter un évènement
+                Ajouter actualité
             </h1>
         </section>
         <section class="content">
@@ -21,7 +21,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin/events') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/actualites') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body" id="inputs">
                                 <div class="form-group">
@@ -56,15 +56,6 @@
                                     @enderror
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="date">Date d'évènement  <span
-                                            style="color: red">* </span></label>
-                                    <input type="date" class="form-control" name="date"
-                                        id="date">
-                                    @error('date')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
                                 <div class="form-group">
                                     <label for="image">Images  <span
                                             style="color: red">* </span></label>
