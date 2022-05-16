@@ -23,12 +23,18 @@ class FormationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules =  [
             "titre" => "required | string",
             "description" => "required | string",
             "image" => "required | mimes:png,jpg,jpeg",
             "date" => "required",
-            "categorie_id" => "required | string",
         ];
+        if($this->categorie_id == null){
+            $rules['categorie_label'] = "required";
+        } else {
+            $rules['categorie_id'] = "required";
+        }
+
+        return $rules;
     }
 }

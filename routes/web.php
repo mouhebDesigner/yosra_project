@@ -58,6 +58,7 @@ Route::resource('documents', DocumentController::class);
 // Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
 // Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
 Route::get('forum/create', [ForumController::class, 'create'])->middleware('auth')->name('forums.create');
+Route::get('forum/search', [ForumController::class, 'search'])->name('forum.search');
 Route::resource('commentaires', CommentaireController::class);
 Route::get('categorie/{id}/events', function($id){
     $events = Categorie::find($id)->events()->get();

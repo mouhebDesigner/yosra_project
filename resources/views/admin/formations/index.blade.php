@@ -60,7 +60,7 @@
                                                             Catégorie
                                                         </th>
                                                         <th>
-                                                            Date
+                                                            Date / Heure
                                                         </th>
                                                         
                                                         <th>
@@ -73,15 +73,23 @@
                                                         <tr>
                                                             <td>{{ $formation->id }}</td>
                                                             <td>{{ $formation->titre }}</td>
-                                                            <td>{{ $formation->categorie->label }}</td>
-                                                            <td>{{ $formation->date }}</td>
+                                                            <td>
+                                                                @if($formation->categorie)
+                                                                    {{$formation->categorie->label}}
+                                                                @else 
+                                                                    {{$formation->categorie_label}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                {{ $formation->date }}  {{ $formation->time }} 
+                                                            </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="évènement" data-url="{{ route('admin.events.destroy', ['event' => $formation]) }}" >
+                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="formation" data-url="{{ route('admin.formations.destroy', ['formation' => $formation]) }}" >
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
-                                                                    <a href="{{ route('admin.events.edit', ['event'=>$formation]) }}" data-model="évènement" class="btn-edit edit-confirm">
+                                                                    <a href="{{ route('admin.formations.edit', ['formation'=>$formation]) }}" data-model="formation" class="btn-edit edit-confirm">
                                                                         <i class="fa fa-pen"></i>
                                                                     </a>
                                                                 </div>

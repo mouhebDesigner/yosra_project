@@ -18,13 +18,16 @@
                             <!--Start tz-events-item -->
                             <div class="tz-events-item">
                                 <div class="tz-image">
-                                    <img alt="Image" src="{{ asset('storage/'.$formation->image) }}">
+                                    <img alt="Image" src="{{ asset($formation->image) }}">
                                     <a href="{{ route('formations.show', ['formation' => $formation]) }}"><i class="fa fa-arrows-alt"></i></a>
                                 </div>
                                 <div class="tz-description">
                                     <img alt="Images" src="{{ asset('front/demos/Home-02/check-01.png') }}">
-                                    <h3><a href="#">{{ $formation->titre }}</a></h3>
-                                    <strong>{{ $formation->date }}</strong>
+                                    <h3><a href="{{ route('formations.show', ['formation' => $formation]) }}">{{ $formation->titre }}</a></h3>
+                                    <strong>
+                                        {{ $formation->date }}
+                                        {{ $formation->time }}
+                                    </strong>
                                 </div>
                             </div>
                             <!--End tz-events-item -->

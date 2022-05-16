@@ -14,6 +14,7 @@ class Actualite extends Model
         "image",
         "date",
         "categorie_id",
+        "categorie_label"
     ];
 
     public function categorie(){

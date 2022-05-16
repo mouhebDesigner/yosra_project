@@ -84,7 +84,7 @@ class FormationController extends Controller
     public function edit(Formation $formation)
     {
 
-        return view('admin.formations.edit', compact('Formation'));
+        return view('admin.formations.edit', compact('formation'));
     }
 
     /**
@@ -101,7 +101,7 @@ class FormationController extends Controller
             $formation->image = $request->image->store('images');
             $formation->save();
         }
-        return redirect('admin/Formations')->with('updated', 'La formation à été modifié avec succée');
+        return redirect('admin/formations')->with('updated', 'La formation à été modifié avec succée');
         
         
     }

@@ -18,6 +18,7 @@ class CreateActualitesTable extends Migration
             $table->string('titre');
             $table->text('description');
             $table->text('image');
+            $table->string('categorie_label')->nullable();
             $table->foreignId('categorie_id')->nullable()->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

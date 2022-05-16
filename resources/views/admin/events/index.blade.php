@@ -73,7 +73,13 @@
                                                         <tr>
                                                             <td>{{ $event->id }}</td>
                                                             <td>{{ $event->titre }}</td>
-                                                            <td>{{ $event->categorie->label }}</td>
+                                                            <td>
+                                                                @if($event->categorie)
+                                                                    {{$event->categorie->label}}
+                                                                @else 
+                                                                    {{$event->categorie_label}}
+                                                                @endif
+                                                            </td>
                                                             <td>{{ $event->date }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">

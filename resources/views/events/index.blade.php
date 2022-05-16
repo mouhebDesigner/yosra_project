@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="tz-description">
                                     <img alt="Images" src="{{ asset('front/demos/Home-02/check-01.png') }}">
-                                    <h3><a href="#">{{ $event->titre }}</a></h3>
+                                    <h3><a href="{{ route('events.show', ['event' => $event]) }}">{{ $event->titre }}</a></h3>
                                     <strong>{{ $event->date }}</strong>
                                 </div>
                             </div>

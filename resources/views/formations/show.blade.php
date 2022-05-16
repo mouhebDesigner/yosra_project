@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
                             <div class="tz-single-ticket">
-                                <img src="{{ asset('storage/'.$formation->image) }}" width="270" alt="Images">
+                                <img src="{{ asset($formation->image) }}" width="270" alt="Images">
                                 <h3>
                                     <img src="{{ asset('front/demos/check.png')}}" alt="Images">
                                 </h3>
@@ -30,6 +30,7 @@
                                 <span>
                                     <img src="{{ asset('front/demos/check.png') }}" alt="Images">
                                     {{ $formation->date }}
+                                    {{ $formation->time }}
                                 </span>
                                 <p>
                                     {{ $formation->description }}

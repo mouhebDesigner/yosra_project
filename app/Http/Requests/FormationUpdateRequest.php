@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActualiteRequest extends FormRequest
+class FormationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,17 @@ class ActualiteRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
+        $rules =  [
             "titre" => "required | string",
             "description" => "required | string",
-            "image" => "required",
+            "date" => "required",
         ];
         if($this->categorie_id == null){
             $rules['categorie_label'] = "required";
         } else {
             $rules['categorie_id'] = "required";
         }
+
         return $rules;
     }
 }

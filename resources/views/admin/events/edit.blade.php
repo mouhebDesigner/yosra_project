@@ -40,13 +40,32 @@
                                     <select class="form-control" name="categorie_id" id="categorie_id">
                                         <option value="" disabled selected>Choisir un catégorie</option>
                                         @foreach(App\Models\Categorie::all() as $categorie)
-                                            <option value="{{ $categorie->id }}" @if($categorie->id == $event->categorie_id) selected @endif>{{ $categorie->id }}</option>
+                                            <option value="{{ $categorie->id }}" @if($categorie->id == $event->categorie_id) selected @endif>{{ $categorie->label }}</option>
                                         @endforeach
+                                        <option value="<?= null ?>"  @if(($event->categorie_label) || ($errors->has('categorie_id')  &&  old('categorie_id') == null)) selected @endif>Autre</option>
                                     </select>
-                                    @error('categorie')
+                                    @error('categorie_id')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+                                @if($errors->has('categorie'))
+                                    <div class="form-group categorie_div">
+                                        <label for="categorie_label">Catégorie <span style="color: red">* </span> </label>
+                                        <input type="text" class="form-control" name="categorie_label" value="{{ old("categorie_label") }}" id="categorie_label" placeholder="Saisir categorie">
+                                        @error("categorie_label")
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if($event->categorie_label)
+                                    <div class="form-group categorie_div">
+                                        <label for="categorie_label">Catégorie <span style="color: red">* </span> </label>
+                                        <input type="text" class="form-control" name="categorie_label" value="{{ $event->categorie_label }}" id="categorie_label" placeholder="Saisir categorie">
+                                        @error("categorie_label")
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="email">Description  
                                         <span style="color: red">* </span>
@@ -94,6 +113,24 @@
 
     @endsection
     @section('script')
-   
+        <script>
+            $(document).ready(function(){
+                $("#categorie_id").on('change', function(){
+                    if($(this).val() == ""){
+                        $(this).after('<div class="form-group categorie_div">'+
+                                    '<label for="categorie_label">Catégorie <span style="color: red">* </span> </label>'+
+                                    '<input type="text" class="form-control" name="categorie_label" value="{{ old("categorie_label") }}" id="categorie_label" placeholder="Saisir categorie">'+
+                                    '@error("categorie_label")'+
+                                    '<p class="text-danger">{{ $message }}</p>'+
+                                    '@enderror'+
+                                '</div>');
+                    } else {
+                        if($(".categorie_div").closest("html").length == 1){
+                            $(".categorie_div").remove();
+                        }
+                    }
+                });
+            });
+        </script>
 
     @endsection

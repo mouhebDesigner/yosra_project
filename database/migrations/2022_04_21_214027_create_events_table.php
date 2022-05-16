@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->text('image');
             $table->date('date');
+            $table->string('categorie_label')->nullable();
             $table->foreignId('categorie_id')->nullable()->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

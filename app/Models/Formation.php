@@ -13,7 +13,9 @@ class Formation extends Model
         "description",
         "image",
         "date",
+        "time",
         "categorie_id",
+        "categorie_label",
     ];
 
     public function categorie(){

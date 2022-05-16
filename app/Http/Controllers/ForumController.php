@@ -105,4 +105,14 @@ class ForumController extends Controller
             "deleted" => "Sujet à été supprimé"
         ]);
     }
+    
+    public function search(Request $request){
+        $forums = 
+        Sujet::where('titre', 'like',  '%'.$request->query('search').'%')
+        ->orWhere('description', 'like',  '%'.$request->query('search').'%')
+        ->get();
+        
+        return view('forums.index', compact('forums'));
+        
+    }
 }

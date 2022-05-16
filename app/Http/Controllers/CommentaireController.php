@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentaireRequest;
-
+use Auth;
 class CommentaireController extends Controller
 {
     public function store(Request $request){
         $comment = Commentaire::create($request->all());
-
+        if(Auth::user()->isAdmin()){
+            return redirect('admin/sujets');
+        }
         return redirect('forums/'.$comment->sujet_id);
     }
 

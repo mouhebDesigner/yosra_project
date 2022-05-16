@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
                 "numtel" => "12345679",
                 "date_naissance" => "1999-10-15",
                 "genre" => "female",
-                "role" => "admin",
+                "role" => "etudiant",
                 "password" => Hash::make("adminadmin"),
             ]
         ]);

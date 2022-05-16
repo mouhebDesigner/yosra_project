@@ -66,7 +66,18 @@
                   
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
-                   
+                   <aside class="widget">
+                        <form action="{{ route('forum.search') }}" class="tz-bog-search tz-social-search" id="searchform" method="get">
+                            <div style="display: flex; width: 100%">
+                                <div>
+                                    <input type="text" name="search" placeholder="Chercher un forum">
+                                </div>
+                                <button type="submit" style="width: 50px">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
                     <aside class="widget widget-link">
                         <ul>
                             @foreach(App\Models\Categorie::all() as $categorie)

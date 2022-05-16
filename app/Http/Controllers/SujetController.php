@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sujet;
 use Illuminate\Http\Request;
-
+use Auth;
 class SujetController extends Controller
 {
     /**
@@ -11,9 +12,21 @@ class SujetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        if(str_contains($request->path(), 'admin') && Auth::user()->isStudent()){
+            abort(404);
+        }
+        if(session('created')){
+            Alert::success('Success Title', session('created'));
+        }
+        if(session('updated')){
+            Alert::success('Success Title', session('updated'));
+        }
+        $sujets = Sujet::paginate(10);
+
+        return view('admin.sujets.index', compact('sujets'));
     }
 
     /**

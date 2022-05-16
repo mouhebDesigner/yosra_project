@@ -18,12 +18,12 @@
                             <!--Start tz-events-item -->
                             <div class="tz-events-item">
                                 <div class="tz-image">
-                                    <img alt="Image" src="{{ asset('storage/'.$actualite->image) }}">
-                                    <a href="#"><i class="fa fa-arrows-alt"></i></a>
+                                    <img alt="Image" src="{{ asset($actualite->image) }}">
+                                    <a href="{{ route('actualites.show', ['actualite' => $actualite]) }}"><i class="fa fa-arrows-alt"></i></a>
                                 </div>
                                 <div class="tz-description">
                                     <img alt="Images" src="{{ asset('front/demos/Home-02/check-01.png') }}">
-                                    <h3><a href="#">{{ $actualite->titre }}</a></h3>
+                                    <h3><a href="{{ route('actualites.show', ['actualite' => $actualite]) }}">{{ $actualite->titre }}</a></h3>
                                     <strong>{{ $actualite->date }}</strong>
                                 </div>
                             </div>

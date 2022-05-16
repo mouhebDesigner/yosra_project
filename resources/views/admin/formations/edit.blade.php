@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <label for="titre">Titre <span
                                             style="color: red">* </span> </label>
-                                    <input type="text" class="form-control" name="titre" value="{{ $event->titre }}" id="titre"
+                                    <input type="text" class="form-control" name="titre" value="{{ $formation->titre }}" id="titre"
                                         placeholder="Saisir titre ">
                                     @error('titre')
                                     <p class="text-danger">{{ $message }}</p>
@@ -40,29 +40,57 @@
                                     <select class="form-control" name="categorie_id" id="categorie_id">
                                         <option value="" disabled selected>Choisir un catégorie</option>
                                         @foreach(App\Models\Categorie::all() as $categorie)
-                                            <option value="{{ $categorie->id }}" @if($categorie->id == $event->categorie_id) selected @endif>{{ $categorie->id }}</option>
+                                            <option value="{{ $categorie->id }}" @if($categorie->id == $formation->categorie_id) selected @endif>{{ $categorie->label }}</option>
                                         @endforeach
+                                        <option value="<?= null ?>"  @if(($formation->categorie_label) || ($errors->has('categorie_id')  &&  old('categorie_id') == null)) selected @endif>Autre</option>
                                     </select>
                                     @error('categorie')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+                                @if($errors->has('categorie'))
+                                    <div class="form-group categorie_div">
+                                        <label for="categorie_label">Catégorie <span style="color: red">* </span> </label>
+                                        <input type="text" class="form-control" name="categorie_label" value="{{ old("categorie_label") }}" id="categorie_label" placeholder="Saisir categorie">
+                                        @error("categorie_label")
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if($formation->categorie_label)
+                                    <div class="form-group categorie_div">
+                                        <label for="categorie_label">Catégorie <span style="color: red">* </span> </label>
+                                        <input type="text" class="form-control" name="categorie_label" value="{{ $formation->categorie_label }}" id="categorie_label" placeholder="Saisir categorie">
+                                        @error("categorie_label")
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="email">Description  
                                         <span style="color: red">* </span>
                                     </label>
-                                    <textarea name="description" class="form-control" placeholder="Saisir description" id="" >{{ $event->description }}</textarea>
+                                    <textarea name="description" class="form-control" placeholder="Saisir description" id="" >{{ $formation->description }}</textarea>
                                     @error('description')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="date">Date d'évènement  <span
+                                    <label for="date">Date de formation  <span
                                             style="color: red">* </span></label>
-                                    <input type="date"  value="{{ $event->date }}" class="form-control" name="date"
+                                    <input type="date"  value="{{ $formation->date }}" class="form-control" name="date"
                                         id="date">
                                     @error('date')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Heure<span
+                                            style="color: red">* </span></label>
+                                    <input type="time" value="{{ $formation->time }}" class="form-control" name="time"
+                                        id="time">
+                                    @error('time')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -94,6 +122,24 @@
 
     @endsection
     @section('script')
-   
+        <script>
+            $(document).ready(function(){
+                $("#categorie_id").on('change', function(){
+                    if($(this).val() == ""){
+                        $(this).after('<div class="form-group categorie_div">'+
+                                    '<label for="categorie_label">Catégorie <span style="color: red">* </span> </label>'+
+                                    '<input type="text" class="form-control" name="categorie_label" value="{{ old("categorie_label") }}" id="categorie_label" placeholder="Saisir categorie">'+
+                                    '@error("categorie_label")'+
+                                    '<p class="text-danger">{{ $message }}</p>'+
+                                    '@enderror'+
+                                '</div>');
+                    } else {
+                        if($(".categorie_div").closest("html").length == 1){
+                            $(".categorie_div").remove();
+                        }
+                    }
+                });
+            });
+        </script>
 
     @endsection

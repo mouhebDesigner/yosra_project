@@ -60,10 +60,6 @@
                                                             Catégorie
                                                         </th>
                                                         <th>
-                                                            Date
-                                                        </th>
-                                                        
-                                                        <th>
                                                             Action
                                                         </th>
                                                     </tr>
@@ -73,8 +69,13 @@
                                                         <tr>
                                                             <td>{{ $actualite->id }}</td>
                                                             <td>{{ $actualite->titre }}</td>
-                                                            <td>{{ $actualite->categorie->label }}</td>
-                                                            <td>{{ $actualite->date }}</td>
+                                                            <td>
+                                                                @if($actualite->categorie)
+                                                                    {{$actualite->categorie->label}}
+                                                                @else 
+                                                                    {{$actualite->categorie_label}}
+                                                                @endif
+                                                            </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
