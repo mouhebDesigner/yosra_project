@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Ajouter un catégorie
+                Ajouter un document
             </h1>
         </section>
         <section class="content">
