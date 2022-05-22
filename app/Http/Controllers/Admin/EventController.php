@@ -117,7 +117,7 @@ class EventController extends Controller
         $event->delete();
 
         return response()->json([
-            "deleted" => "concour is deleted"
+            "deleted" => "Evènement est supprimé"
         ]);
     }
 }

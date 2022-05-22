@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
+@section('title','liste des étudiants')
 @section('content')
     <div class="wrapper">
         
@@ -82,10 +83,10 @@
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="enseignant" data-url="{{ route('admin.etudiants.destroy', ['etudiant' => $etudiant]) }}" >
+                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="étudiant" data-url="{{ route('admin.etudiants.destroy', ['etudiant' => $etudiant]) }}" >
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
-                                                                    <a href="{{ url('admin/etudiants/'.$etudiant->id.'/edit') }}" data-model="enseignant" class="btn-edit edit-confirm">
+                                                                    <a href="{{ url('admin/etudiants/'.$etudiant->id.'/edit') }}" data-model="étudiant" class="btn-edit edit-confirm">
                                                                         <i class="fa fa-pen"></i>
                                                                     </a>
                                                                 </div>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Ajouter formation')
+@section('titre', 'Ajouter une formation')
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')
@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Ajouter un formation
+                Ajouter une formation
             </h1>
         </section>
         <section class="content">

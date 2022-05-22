@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 
+@section('title', 'liste de forums')
 @section('content')
     <div class="wrapper">
         

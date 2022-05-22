@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\SujetController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\EtudiantController;
@@ -39,7 +40,8 @@ Route::middleware(['auth'])->group(function () {
             'formations' => FormationController::class,
             'actualites' => ActualiteController::class,
             'categories' => CategorieController::class,
-            'documents' => DocumentController::class
+            'documents' => DocumentController::class,
+            'demandes' => DemandeController::class
         ]);
         // Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
         // Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
@@ -53,7 +55,8 @@ Route::get('formations/{formation}', [FormationControllerFront::class, 'show'])-
 Route::get('actualites/{actualite}', [ActualiteControllerFront::class, 'show'])->name('actualites.show');
 Route::get('events/{event}', [EventControllerFront::class, 'show'])->name('events.show');
 Route::resource('forums', ForumController::class)->except('create');
-Route::resource('documents', DocumentController::class);
+Route::resource('documents', DocumentController::class)->except('create', 'store');
+Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
 // Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
 // Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
 // Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');

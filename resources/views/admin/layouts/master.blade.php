@@ -21,7 +21,7 @@
     
     
   </head>
-<body class=" sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-closed sidebar-collapse" style="height: auto;">
+<body class=" sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-closed " style="height: auto;">
 
     @yield('content')
     <!-- jQuery -->

@@ -18,7 +18,7 @@
                             <!--Start tz-events-item -->
                             <div class="tz-events-item">
                                 <div class="tz-image">
-                                    <img alt="Image" src="{{ asset('storage/'.$event->image) }}">
+                                    <img alt="Image" src="{{ asset($event->image) }}">
                                     <a href="{{ route('events.show', ['event' => $event]) }}"><i class="fa fa-arrows-alt"></i></a>
                                 </div>
                                 <div class="tz-description">

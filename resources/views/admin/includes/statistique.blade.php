@@ -11,7 +11,7 @@
               Les Sujets
           </span>
           <span class="info-box-number text-dark">
-              12
+              {{ App\Models\Sujet::count() }}
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -29,7 +29,8 @@
               Les Etudiants
           </span>
           <span class="info-box-number text-dark">
-              12
+            {{ App\Models\User::where('role', 'etudiant')->count() }}
+
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -47,7 +48,7 @@
               Inscriptions
           </span>
           <span class="info-box-number text-dark">
-              12
+            {{ App\Models\User::where('role', 'etudiant')->count() }}
           </span>
         </div>
         <!-- /.info-box-content -->

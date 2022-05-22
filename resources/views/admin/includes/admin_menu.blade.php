@@ -74,6 +74,15 @@
             </p>
         </a>
     </li>
+    <li class="nav-item @if(Request::is('admin/demandes*')) active @endif">
+        <a href="{{ url('admin/demandes') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+            Demande de document
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
    
    
 </ul>
