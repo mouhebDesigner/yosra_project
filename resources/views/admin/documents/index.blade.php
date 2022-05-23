@@ -33,10 +33,14 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
-                                            <h3 class="m-0">Liste des demande de document</h3>
+                                            @if(Request::is('admin/documents')) 
+                                            <h3 class="m-0">Liste des document</h3>
                                             <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
                                                 <i class="fa fa-plus"></i>
                                             </a>
+                                            @else 
+                                            <h3 class="m-0">Liste des demandes de document</h3>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

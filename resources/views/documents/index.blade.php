@@ -33,7 +33,7 @@
                                     <a href="#">{{ $document->titre }}</a>
                                 </span>
                                 @if(Auth::check())
-                                    @if($document->user->id == Auth::id())
+                                    @if($document->user && $document->user->id == Auth::id())
                                         <div>
                                             <a href="{{ route('documents.edit', ['document' => $document]) }}">
                                                 <i class="fa fa-edit"></i>

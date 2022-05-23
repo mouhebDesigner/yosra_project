@@ -55,8 +55,8 @@ Route::get('formations/{formation}', [FormationControllerFront::class, 'show'])-
 Route::get('actualites/{actualite}', [ActualiteControllerFront::class, 'show'])->name('actualites.show');
 Route::get('events/{event}', [EventControllerFront::class, 'show'])->name('events.show');
 Route::resource('forums', ForumController::class)->except('create');
-Route::resource('documents', DocumentController::class)->except('create', 'store');
-Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
+    Route::resource('documents', DocumentController::class);
+// Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
 // Route::get('documents', [DocumentController::class, 'index'])->name('documents.index');
 // Route::get('documents/create', [DocumentController::class, 'create'])->name('documents.create');
 // Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');

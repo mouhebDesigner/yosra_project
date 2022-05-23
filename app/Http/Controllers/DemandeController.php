@@ -10,7 +10,7 @@ use App\Http\Requests\DocumentRequest;
 class DemandeController extends Controller
 {
     public function index(){
-        $documents = Document::where('file', 'IS NULL')->paginate(10);
+        $documents = Document::whereNull('file')->paginate(10);
         if(Auth::check()){
             if(Auth::user()->isAdmin()){
                 return view("admin.documents.index", compact('documents'));

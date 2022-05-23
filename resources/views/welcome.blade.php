@@ -16,106 +16,10 @@
                             </div>
                             <div class="tz-banner-content" style="top: 262.5px;">
                                 <div class="container">
-                                    <small>FORUM ISG GABES</small>
-                                    <h4>UNIVERSTIE ISG</h4>
+                                    <small>FORUM</small>
+                                    <h4> ISG GABES</h4>
                                     <a class="tz-item-more-details" href="{{ route('register') }}">
                                         <span><i class="fa fa-arrows-alt"></i>REJOIGNEZ-NOUS</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="tz-button-left" style="top: 40%;">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                            <button class="tz-button-right" style="top: 40%;">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 1006px;">
-                        <div class="tz-items">
-                            <div class="tz-slider-images">
-                                <img src="{{ asset('front/demos/Banner/banner-01.jpg') }}" alt="Images">
-                            </div>
-                            <div class="tz-banner-content" style="top: 262.5px;">
-                                <div class="container">
-                                    <small>NUMBER ONE</small>
-                                    <h4>ENGLAND UNIVERSITY</h4>
-                                    <span class="tz-under-line"></span>
-                                    <h6>We Are The Best Worldwide University</h6>
-                                    <a class="tz-item-more-details" href="#">
-                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="tz-button-left" style="top: 40%;">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                            <button class="tz-button-right" style="top: 40%;">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 1006px;">
-                        <div class="tz-items">
-                            <div class="tz-slider-images">
-                                <img src="{{ asset('front/demos/Banner/banner-02.jpg') }}" alt="Images">
-                            </div>
-                            <div class="tz-banner-content" style="top: 262.5px;">
-                                <div class="container">
-                                    <small>NUMBER ONE</small>
-                                    <h4>ENGLAND UNIVERSITY</h4>
-                                    <span class="tz-under-line"></span>
-                                    <h6>We Are The Best Worldwide University</h6>
-                                    <a class="tz-item-more-details" href="#">
-                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="tz-button-left" style="top: 40%;">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                            <button class="tz-button-right" style="top: 40%;">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 1006px;">
-                        <div class="tz-items">
-                            <div class="tz-slider-images">
-                                <img src="{{ asset('front/demos/Banner/banner-04.jpg') }}" alt="Images">
-                            </div>
-                            <div class="tz-banner-content" style="top: 262.5px;">
-                                <div class="container">
-                                    <small>NUMBER ONE</small>
-                                    <h4>ENGLAND UNIVERSITY</h4>
-                                    <span class="tz-under-line"></span>
-                                    <h6>We Are The Best Worldwide University</h6>
-                                    <a class="tz-item-more-details" href="#">
-                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="tz-button-left" style="top: 40%;">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                            <button class="tz-button-right" style="top: 40%;">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 1006px;">
-                        <div class="tz-items">
-                            <div class="tz-slider-images">
-                                <img src="{{ asset('front/demos/Banner/banner-05.jpg') }}" alt="Images">
-                            </div>
-                            <div class="tz-banner-content" style="top: 262.5px;">
-                                <div class="container">
-                                    <small>NUMBER ONE</small>
-                                    <h4>ENGLAND UNIVERSITY</h4>
-                                    <span class="tz-under-line"></span>
-                                    <h6>We Are The Best Worldwide University</h6>
-                                    <a class="tz-item-more-details" href="#">
-                                        <span><i class="fa fa-arrows-alt"></i>MORE DETAILS</span>
                                     </a>
                                 </div>
                             </div>

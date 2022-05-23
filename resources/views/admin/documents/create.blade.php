@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Ajouter etudiant')
+@section('titre', 'Ajouter un document')
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')

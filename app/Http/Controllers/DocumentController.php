@@ -10,7 +10,7 @@ use App\Http\Requests\DocumentRequest;
 class DocumentController extends Controller
 {
     public function index(){
-        $documents = Document::paginate(10);
+        $documents = Document::whereNull('user_id')->paginate(10);
 
         if(Auth::check()){
             if(Auth::user()->isAdmin()){

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Ethic - HomePage</title>
+    <title>Page d'accueil</title>
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('front/fonts/awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
