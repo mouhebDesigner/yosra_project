@@ -38,7 +38,11 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        @include('admin.includes.admin_menu')
+        @if(Auth::user()->isAdmin())
+          @include('admin.includes.admin_menu')
+        @else 
+          @include('admin.includes.formateur_menu')
+        @endif
       </nav>
       <!-- /.sidebar-menu -->
     </div>

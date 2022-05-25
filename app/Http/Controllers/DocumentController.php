@@ -13,7 +13,7 @@ class DocumentController extends Controller
         $documents = Document::whereNull('user_id')->paginate(10);
 
         if(Auth::check()){
-            if(Auth::user()->isAdmin()){
+            if(Auth::user()->isAdmin() || Auth::user()->isJury()){
                 return view("admin.documents.index", compact('documents'));
             } else {
                 return view("documents.index", compact('documents'));

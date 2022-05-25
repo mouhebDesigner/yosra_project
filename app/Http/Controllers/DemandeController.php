@@ -12,7 +12,7 @@ class DemandeController extends Controller
     public function index(){
         $documents = Document::whereNull('file')->paginate(10);
         if(Auth::check()){
-            if(Auth::user()->isAdmin()){
+            if(Auth::user()->isAdmin() || Auth::user()->isJury()){
                 return view("admin.documents.index", compact('documents'));
             } else {
                 return view("documents.index", compact('documents'));

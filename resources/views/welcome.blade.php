@@ -33,10 +33,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
     <!-- End  class banner style-3 -->

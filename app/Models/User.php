@@ -57,6 +57,11 @@ class User extends Authenticatable
     public function isAdmin(){
         return Auth::user()->role == "admin";
     }
+
+    public function isJury(){
+        return Auth::user()->role == "jury";
+    }
+    
     public function isStudent(){
         return Auth::user()->role == "etudiant";
     }

@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
             'events' => EventController::class,
             'formations' => FormationController::class,
             'actualites' => ActualiteController::class,
-            'categories' => CategorieController::class,
+            'categories' => CategorieController::class, 
             'documents' => DocumentController::class,
             'demandes' => DemandeController::class
         ]);
@@ -78,6 +78,7 @@ Route::get('categorie/{id}/actualites', function($id){
 Route::get('profile', [ProfileController::class, 'index'])->middleware('auth');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('profile.edit');
 Route::put('profile', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
+
 Route::get('/', function () {
     return view('welcome');
 });

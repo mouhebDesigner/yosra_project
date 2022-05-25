@@ -10,7 +10,7 @@ class EventController extends Controller
         $events = Event::paginate(10);
         return view('events.index', compact('events'));
     }
-
+    
     public function show(Event $event){
         return view('events.show', compact('event'));
     }

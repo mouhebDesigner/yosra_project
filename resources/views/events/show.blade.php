@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
                             <div class="tz-single-ticket">
-                                <img src="{{ asset('storage/'.$event->image) }}" alt="Images">
+                                <img src="{{ asset($event->image) }}" alt="Images" style="width: 100%">
                                 <h3>
                                     <img src="{{ asset('front/demos/check.png')}}" alt="Images">
                                     BUY TICKET
@@ -69,7 +69,7 @@
                             </li> 
                             @foreach(App\Models\Event::orderBy('created_at', 'desc')->get()->take(3) as $event)
                             <li>
-                                <span><img src="{{ asset('storage/'.$event->image) }}" style="width: 60px" alt="Images"></span>
+                                <span><img src="{{ asset($event->image) }}" style="width: 60px" alt="Images"></span>
                                 <div class="tz-post-content">
                                     <h5><a href="#"></a><a href="#">{{ $event->titre }}</a></h5>
                                     <span>{{ $event->date }}</span>
