@@ -4,6 +4,7 @@
             <div class="container-fluid">
                 <div class="tz-header-content">
                     <h3 class="tz-logo pull-left">
+                        <img src="{{ asset('front/logo.png') }}" width="120" alt="">
                     </h3>
                     <button type="button" class="tz-button-toggle btn-navbar pull-right" data-target=".nav-collapse">
                         <i class="fa fa-bars"></i>
