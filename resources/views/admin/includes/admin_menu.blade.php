@@ -20,11 +20,20 @@
             </p>
         </a>
     </li>
-     <li class="nav-item @if(Request::is('admin/etudiants*')) active @endif">
+    <li class="nav-item @if(Request::is('admin/etudiants*')) active @endif">
         <a href="{{ url('admin/etudiants') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>
             <p>
             Etudiants
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
+    <li class="nav-item @if(Request::is('admin/enseignants*')) active @endif">
+        <a href="{{ url('admin/enseignants') }}" class="nav-link ">
+            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+            <p>
+            Jury
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>

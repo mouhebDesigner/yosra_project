@@ -11,6 +11,7 @@ use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\EnseignantController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ActualiteControllerFront;
@@ -36,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
             'users' => UserController::class,
             'sujets' => SujetController::class,
             'etudiants' => EtudiantController::class,
+            'enseignants' => EnseignantController::class,
             'events' => EventController::class,
             'formations' => FormationController::class,
             'actualites' => ActualiteController::class,

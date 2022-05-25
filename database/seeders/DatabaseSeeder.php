@@ -35,6 +35,16 @@ class DatabaseSeeder extends Seeder
                 "genre" => "female",
                 "role" => "etudiant",
                 "password" => Hash::make("adminadmin"),
+            ],
+            [
+                "nom" => "enseignant",
+                "prenom" => "enseignant",
+                "email" => "enseignant@gmail.com",
+                "numtel" => "45555666",
+                "date_naissance" => "1999-10-15",
+                "genre" => "male",
+                "role" => "jury",
+                "password" => Hash::make("adminadmin"),
             ]
         ]);
         DB::table('categories')->insert([
