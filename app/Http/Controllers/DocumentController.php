@@ -30,7 +30,7 @@ class DocumentController extends Controller
     
     public function create()
     {
-        if(Auth::user()->isAdmin()){
+        if(Auth::user()->isAdmin() || Auth::user()->isJury()){
             return view("admin.documents.create");
         } else {
             return view("documents.create");

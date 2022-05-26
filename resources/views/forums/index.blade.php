@@ -22,9 +22,11 @@
                     <div class="tz-all-groups">
                         <h4 class="tz-members-title w-100" style="display: flex;justify-content: space-between;">
                             <a href="#">VOIR TOUT LES FORUMS</a>
+                            @if(Auth::user()->isStudent())
                             <a href="{{ route('forums.create') }}" class="login-btn" style="margin-right: 10px; color: white">
                                 Créer
                             </a>
+                            @endif
                         </h4>
                         
                         @foreach($forums as $forum)

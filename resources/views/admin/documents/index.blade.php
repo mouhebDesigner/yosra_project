@@ -34,7 +34,7 @@
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
                                             @if(Request::is('admin/documents')) 
-                                            <h3 class="m-0">Liste des document</h3>
+                                            <h3 class="m-0">Liste des documents</h3>
                                             <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
                                                 <i class="fa fa-plus"></i>
                                             </a>
