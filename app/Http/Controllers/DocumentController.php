@@ -10,12 +10,13 @@ use App\Http\Requests\DocumentRequest;
 class DocumentController extends Controller
 {
     public function index(){
-        $documents = Document::whereNull('user_id')->paginate(10);
-
+        
         if(Auth::check()){
             if(Auth::user()->isAdmin() || Auth::user()->isJury()){
+                $documents = Document::whereNull('user_id')->paginate(10);
                 return view("admin.documents.index", compact('documents'));
             } else {
+                $documents = Document::paginate(10);
                 return view("documents.index", compact('documents'));
             }
         } else {

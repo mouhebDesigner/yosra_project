@@ -34,10 +34,10 @@
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
                                             @if(Request::is('admin/documents')) 
-                                            <h3 class="m-0">Liste des documents</h3>
-                                            <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
-                                                <i class="fa fa-plus"></i>
-                                            </a>
+                                                <h3 class="m-0">Liste des documents</h3>
+                                                <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
                                             @else 
                                             <h3 class="m-0">Liste des demandes de document</h3>
                                             @endif
@@ -74,13 +74,19 @@
                                                             <td>{{ $document->titre }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
-                                                                    
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="document" data-url="{{ route('admin.documents.destroy', ['document' => $document]) }}" >
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                    <a href="{{ route('admin.documents.edit', ['document'=>$document]) }}" data-model="document" class="btn-edit edit-confirm">
-                                                                        <i class="fa fa-pen"></i>
-                                                                    </a>
+                                                                    @if(Request::is('admin/demandes'))
+                                                                        <a href="{{ route('admin.documents.edit', ['document'=>$document]) }}" data-model="document" class="btn-edit edit-confirm" style="width: max-content; padding: 0px 10px">
+                                                                            Répondre au demande
+                                                                        </a>
+                                                                    @else 
+
+                                                                        <button type="submit" class="btn-delete delete-confirm" data-model="document" data-url="{{ route('admin.documents.destroy', ['document' => $document]) }}" >
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                        <a href="{{ route('admin.documents.edit', ['document'=>$document]) }}" data-model="document" class="btn-edit edit-confirm">
+                                                                            <i class="fa fa-pen"></i>
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
                                                             </td>
                                                         </tr>

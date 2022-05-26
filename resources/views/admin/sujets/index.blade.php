@@ -33,6 +33,9 @@
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
                                             <h3 class="m-0">Liste des sujets</h3>
+                                            <a href="{{ route('admin.sujets.create') }}" class="add_button" title="ajouter un sujet">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +46,7 @@
                                     @foreach($sujets as $sujet)
                                         <div class="col-md-6">
                                             <div class="card card-widget">
-                                                <div class="card-header">
+                                                <div class="card-header d-flex justify-content-between">
                                                     <div class="user-block">
                                                         @if($sujet->user->avatar == null)
                                                             <img class="img-circle" src="{{ asset('front/icons/avatar.png') }}" alt="Images" title="{{ $sujet->user->nom }} {{ $sujet->user->prenom }}">
@@ -54,6 +57,14 @@
                                                         <span class="username">{{ $sujet->user->nom }} {{ $sujet->user->prenom }}</span>
                                                         <span class="description">Créé dans: {{ $sujet->created_at }}</span>
                                                     </div>
+                                                    @if(Auth::id() == $sujet->user_id)
+                                                        <a href="{{ route('admin.sujets.edit', ['sujet' => $sujet]) }}">
+                                                            <i class="fa fa-pen"></i>
+                                                        </a>
+                                                        <button type="submit" class="btn-delete delete-confirm" data-model="sujet" data-url="{{ route('admin.sujets.destroy', ['sujet' => $sujet]) }}" >
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    @endif
 
                                                     
 

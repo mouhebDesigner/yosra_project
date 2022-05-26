@@ -11,7 +11,7 @@ class Sujet extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'titre', 'description', "categorie_id", "user_id"
+        'titre', 'description','document', "categorie_id", "user_id"
     ];
     public function commentaires(){
         return $this->hasMany(Commentaire::class);
@@ -19,5 +19,9 @@ class Sujet extends Model
     
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function setDocumentAttribute(){
+        $this->attributes['document'] = request()->document->store('files');
     }
 }

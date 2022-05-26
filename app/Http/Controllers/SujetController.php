@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Sujet;
 use Illuminate\Http\Request;
-use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class SujetController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class SujetController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sujets.create');
     }
 
     /**
@@ -47,7 +49,10 @@ class SujetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $sujet = Sujet::create($request->all());
+
+        return redirect('admin/sujets')->with('created', 'Le sujet à été crée avec succée');
+
     }
 
     /**
@@ -67,9 +72,9 @@ class SujetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sujet $sujet)
     {
-        //
+        return view('admin.sujets.edit', compact('sujet'));
     }
 
     /**
@@ -79,9 +84,17 @@ class SujetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sujet $sujet)
     {
-        //
+        $sujet->update($request->all());
+        if($request->hasFile('document')){
+            foreach($request->document as $document){
+                $sujet->document .= $document->store('uploads').",";
+            }
+        }
+        $sujet->save();
+
+        return redirect('admin/sujets')->with('updated', 'Le sujet a été modifié avec succée');
     }
 
     /**
@@ -90,8 +103,12 @@ class SujetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Sujet $sujet)
     {
-        //
+        $sujet->delete();
+        
+        return response()->json([
+            "deleted" => "Sujet à été supprimé"
+        ]);
     }
 }
