@@ -1,6 +1,10 @@
 @extends('admin.layouts.master')
 
-@section('titre', 'Modifier document')
+@if($document->user_id)
+    @section('titre', 'Répondre au document')
+@else 
+    @section('titre', 'Modifier document')
+@endif
 @section('content')
 <div class="wrapper">
     @include('admin.includes.header')
@@ -21,7 +25,12 @@
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Formulaire de modification</h3>
+                            @if($document->user_id)
+                                <h3 class="card-title">Forumlaire de téléchargement de document</h3>
+                            @else 
+                                <h3 class="card-title">Formulaire de modification</h3>
+                            @endif
+
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
