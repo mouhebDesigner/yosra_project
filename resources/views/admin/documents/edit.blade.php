@@ -7,9 +7,13 @@
     @include('admin.includes.aside')
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>
+            @if($document->user_id)
+                <h1>
+                    Répondre au document
+                </h1>
+            @else 
                 Modifier un document
-            </h1>
+            @endif
         </section>
         <section class="content">
             <div class="row">

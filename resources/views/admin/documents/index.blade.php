@@ -34,7 +34,7 @@
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
                                             @if(Request::is('admin/documents')) 
-                                                <h3 class="m-0">Liste des documents</h3>
+                                                <h3 class="m-0">Liste des  documents</h3>
                                                 <a href="{{ url('admin/documents/create') }}" class="add_button" title="ajouter un document">
                                                     <i class="fa fa-plus"></i>
                                                 </a>
@@ -60,8 +60,7 @@
                                                         <th>
                                                             Titre
                                                         </th>
-                                                       
-                                                        
+
                                                         <th>
                                                             Action
                                                         </th>
@@ -75,9 +74,13 @@
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     @if(Request::is('admin/demandes'))
+                                                                        @if($document->file == null)
                                                                         <a href="{{ route('admin.documents.edit', ['document'=>$document]) }}" data-model="document" class="btn-edit edit-confirm" style="width: max-content; padding: 0px 10px">
                                                                             Répondre au demande
                                                                         </a>
+                                                                        @else 
+                                                                           Ce document  est Traité 
+                                                                        @endif
                                                                     @else 
 
                                                                         <button type="submit" class="btn-delete delete-confirm" data-model="document" data-url="{{ route('admin.documents.destroy', ['document' => $document]) }}" >

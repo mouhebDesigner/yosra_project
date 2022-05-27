@@ -23,7 +23,7 @@ class DocumentRequest extends FormRequest
      */
     public function rules()
     {
-        if(Auth::user()->isAdmin()){
+        if(Auth::user()->isAdmin() || Auth::user()->isJury()){
 
             return [
                 "file" => "required" 
