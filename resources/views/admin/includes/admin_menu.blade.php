@@ -33,7 +33,7 @@
         <a href="{{ url('admin/enseignants') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>
             <p>
-            Jury
+            Enseignants
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
